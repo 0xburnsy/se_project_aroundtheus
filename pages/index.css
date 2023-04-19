@@ -22,7 +22,9 @@
 }
 
 .header {
-  margin-top: 45px;
+  padding-top: 45px;
+  padding-bottom: 41px;
+  border-bottom: 1px solid #545454;
 }
 
 .profile {
@@ -203,7 +205,7 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 665px) {
   /* On screens smaller than 800px, change the grid to 2 columns */
   .card__list {
     grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
