@@ -8,7 +8,6 @@
   display: grid;
   align-items: center;
   grid-template-areas: "title button" "description description";
-  grid-template-columns: minmax(auto, 373px) auto;
   grid-column-gap: 10px;
 }
 
