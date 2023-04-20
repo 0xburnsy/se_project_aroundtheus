@@ -1,8 +1,8 @@
-@media screen and (max-width: 1100px) {
+/* @media screen and (max-width: 1100px) {
   .page__section {
     margin: 0 20px;
   }
-}
+} */
 
 @media screen and (max-width: 665px) {
   .profile__info {
