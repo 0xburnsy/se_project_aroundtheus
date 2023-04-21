@@ -3,3 +3,9 @@
 @import url(../blocks/profile.css);
 @import url(../blocks/card.css);
 @import url(../blocks/media-queries.css);
+
+.footer__label {
+  display: flex;
+  padding-top: 67px;
+  padding-bottom: 60px;
+}
