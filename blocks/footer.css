@@ -13,11 +13,15 @@
 @media screen and (max-width: 665px) {
   .footer__label {
     max-width: 581px;
+    line-height: 16.94px;
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .footer__label {
     max-width: 282px;
+    line-height: 16.94px;
+    font-size: 14px;
   }
 }
