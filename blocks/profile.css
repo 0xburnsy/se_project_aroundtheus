@@ -21,10 +21,11 @@
 }
 
 .profile__edit-button {
-  background: transparent url(../images/Pencil.png) center no-repeat;
+  background: transparent url(../images/pencil.svg) center no-repeat;
   width: 24px;
   height: 24px;
   grid-area: button;
+  border: 1px solid #FFFFFF;
 }
 
 .profile__description {
@@ -37,10 +38,12 @@
 }
 
 .profile__add-button {
-  background: transparent url(../images/Add\ Button.svg) center no-repeat;
+  background: transparent url(../images/Add.svg) center no-repeat;
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
 }
 
 .profile__image {
@@ -96,6 +99,7 @@
     display: flex;
     width: 18px;
     height: 18px;
+    border: 1px solid #ffffff;
   }
 
   .profile__description {
@@ -111,5 +115,6 @@
     width: 100%;
     height: 50px;
     max-width: 282px;
-  }
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
 }
