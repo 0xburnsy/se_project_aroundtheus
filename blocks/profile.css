@@ -71,10 +71,6 @@
     flex-direction: column;
   }
 
-  .profile__image {
-    margin: 0;
-  }
-
   .profile__info {
     justify-content: center;
     align-items: center;
