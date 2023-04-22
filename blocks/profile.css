@@ -26,6 +26,7 @@
   height: 24px;
   grid-area: button;
   border: 1px solid #ffffff;
+  cursor: pointer;
 }
 
 .profile__description {
@@ -44,6 +45,7 @@
   margin-left: auto;
   border: 2px solid #ffffff;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .profile__image {
