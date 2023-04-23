@@ -82,9 +82,11 @@
   .profile__title {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    white-space: nowrap;
+    flex-wrap: wrap;
+    white-space: wrap;
     margin: 0;
+    font-size: 32px;
+    line-height: 26.67px;
   }
 
   .profile__edit-button {
