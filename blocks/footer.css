@@ -8,6 +8,7 @@
   line-height: 22px;
   letter-spacing: 0em;
   color: #545454;
+  margin: 0;
 }
 
 @media screen and (max-width: 665px) {
