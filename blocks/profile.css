@@ -36,6 +36,7 @@
   line-height: 22px;
   grid-area: description;
   margin: 0;
+  padding: 7px;
 }
 
 .profile__add-button {
