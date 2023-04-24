@@ -57,7 +57,7 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 665px) {
+@media screen and (max-width: 760px) {
   .profile {
     flex-direction: column;
   }
@@ -87,6 +87,8 @@
   .profile__description {
     padding-top: 14px;
     padding-bottom: 36px;
+    line-height: 16.94px;
+    font-size: 14px;
   }
 }
 
