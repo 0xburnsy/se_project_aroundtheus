@@ -51,9 +51,3 @@
 .card__like-button:hover {
   opacity: 50%;
 }
-
-@media screen and (max-width: 480px) {
-  .cards__list {
-    padding: 36px 0 0;
-  }
-}
