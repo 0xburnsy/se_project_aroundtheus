@@ -80,6 +80,11 @@
   .profile__image {
     margin: 0;
   }
+
+  .profile__title {
+    font-size: 22px;
+    line-height: 26.67px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -95,8 +100,6 @@
     flex-wrap: wrap;
     white-space: wrap;
     margin: 0;
-    font-size: 40px;
-    line-height: 26.67px;
   }
 
   .profile__edit-button {
