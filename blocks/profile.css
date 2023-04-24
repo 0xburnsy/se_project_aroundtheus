@@ -65,7 +65,7 @@
   .profile__info {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .profile__add-button {
