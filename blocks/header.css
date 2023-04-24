@@ -12,6 +12,7 @@
   .header__logo {
     width: 126px;
     height: 24px;
+    padding: 28px 0 32px 0;
   }
 
   .header {
