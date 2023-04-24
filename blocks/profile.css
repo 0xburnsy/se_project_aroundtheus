@@ -83,6 +83,11 @@
     font-size: 22px;
     line-height: 26.67px;
   }
+
+  .profile__description {
+    padding-top: 14px;
+    padding-bottom: 36px;
+  }
 }
 
 @media screen and (max-width: 480px) {
