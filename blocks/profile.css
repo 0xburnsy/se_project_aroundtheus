@@ -66,10 +66,13 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+    padding-top: 26.25px;
+    max-width: 282px;
   }
 
   .profile__add-button {
-    width: 575px;
+    max-width: 282px;
     margin: 0;
     margin-top: 25px;
   }
