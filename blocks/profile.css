@@ -106,7 +106,6 @@
 
 @media screen and (max-width: 620px) {
   .profile__title {
-    display: flex;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -118,7 +117,6 @@
   }
 
   .profile__description {
-    display: flex;
     justify-content: center;
   }
 }
