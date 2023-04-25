@@ -8,14 +8,10 @@
   color: rgba(84, 84, 84, 0.7);
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 760px) {
   .header__logo {
     width: 126px;
     height: 24px;
-    padding: 28px 0 32px 0;
-  }
-
-  .header {
-    width: 100%;
+    padding: 28px 167px 32px 27px;
   }
 }
