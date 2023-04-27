@@ -1,26 +1,34 @@
 .modal {
-  display: none;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  background: transparent;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  padding: 0 19px;
   display: none;
   justify-content: center;
   align-items: center;
-  z-index: 999;
-  padding: 0 19px;
 }
 
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 
 .modal__container {
   position: relative;
+  display: flex;
   width: 430px;
   height: 330px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal__close {
@@ -37,11 +45,13 @@
   height: 40px;
 }
 
-.modal__fieldset {
+.modal__form {
   background: white;
   color: black;
   display: flex;
   flex-direction: column;
+  width: 430px;
+  height: 330px;
   border-radius: 10px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
@@ -58,7 +68,7 @@
 
 .modal__profile-edit {
   max-width: 358px;
-  margin: 54px 36px 0px 36px;
+  margin: 54px 36px 27.26px 36px;
   height: 27.26px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -66,18 +76,26 @@
 
 .modal__description-edit {
   max-width: 358px;
-  margin: 54px 36px 0px 36px;
+  margin: 0px 36px 48px 36px;
   height: 27.26px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000000;
 }
 
 .modal__button {
   cursor: pointer;
   background: black;
   color: white;
-  margin: 48px 36px 36.51px 36px;
+  margin: 0px 36px 36px 36px;
   max-width: 358px;
   height: 50.15px;
   border-radius: 2px;
+  padding: 13.66px 124px 18.49px 124px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
 }
