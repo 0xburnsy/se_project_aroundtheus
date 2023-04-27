@@ -12,7 +12,7 @@ Link to the project on Figma
 
 ## Site
 
-Link to the project on Github Pages
+https://0xburnsy.github.io/se_project_aroundtheus/
 
 ## Project Description and Functionality
 
