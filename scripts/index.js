@@ -28,8 +28,8 @@ const initialCards = [
 console.log(initialCards);
 
 //Open Edit Modal//
-const edit__button = document.querySelector(".profile__edit-button");
-edit__button.addEventListener("click", openModal);
+const editButton = document.querySelector(".profile__edit-button");
+editButton.addEventListener("click", openModal);
 
 function openModal() {
   const modal = document.querySelector(".modal");
@@ -37,8 +37,8 @@ function openModal() {
 }
 
 //Close Edit Modal//
-const close__button = document.querySelector(".modal__close");
-close__button.addEventListener("click", closeModal);
+const closeButton = document.querySelector(".modal__close");
+closeButton.addEventListener("click", closeModal);
 
 function closeModal() {
   const modal = document.querySelector(".modal");
