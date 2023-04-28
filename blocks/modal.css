@@ -99,3 +99,31 @@
   line-height: 22px;
   text-align: center;
 }
+
+@media screen and (max-width: 635px) {
+  .modal__container {
+    max-width: 282px;
+  }
+
+  .modal__form {
+    max-width: 282px;
+  }
+
+  .modal__button {
+    max-width: 238px;
+    padding: 14px 100px 14px 100px;
+    margin: 0px 22px 25px 22px;
+  }
+
+  .modal__profile-edit {
+    margin-top: 75px;
+  }
+
+  .modal__close {
+    top: -61px;
+    right: 0;
+  }
+
+  .modfont-size { 1
+    font-size:18px;
+}
