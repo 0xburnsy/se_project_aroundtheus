@@ -1,3 +1,26 @@
+const titleElement = document.querySelector(".profile__title");
+const descriptionElement = document.querySelector(".profile__description");
+const modal = document.querySelector(".modal");
+
+// Define for OpenModal Function
+const editButton = document.querySelector(".profile__edit-button");
+
+//Get the current Name and About me values displayed on page
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+
+//Close Edit Modal//
+const closeButton = document.querySelector(".modal__close");
+
+// Definitions for saveAndClose Function
+const saveButton = document.querySelector(".modal__button");
+
+// Clone the template element and its content
+const template = document.querySelector("#card-template");
+
+// Get the cards list element
+const cardsList = document.querySelector(".cards__list");
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,64 +48,8 @@ const initialCards = [
   },
 ];
 
-console.log(initialCards);
-
-// Define for OpenModal Function
-const editButton = document.querySelector(".profile__edit-button");
-editButton.addEventListener("click", openModal);
-
-function openModal() {
-  const modal = document.querySelector(".modal");
-  modal.classList.add("modal_opened");
-}
-
-//Get the current Name and About me values displayed on page
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
-
-// Set the initial values of the Name and About me form fields
-const titleInput = document.querySelector(".modal__profile-edit");
-const descriptionInput = document.querySelector(".modal__description-edit");
-titleInput.value = profileTitle.textContent;
-descriptionInput.value = profileDescription.textContent;
-
-//Close Edit Modal//
-const closeButton = document.querySelector(".modal__close");
-closeButton.addEventListener("click", closeModal);
-
-function closeModal() {
-  const modal = document.querySelector(".modal");
-  modal.classList.remove("modal_opened");
-}
-
-// Definitions for saveAndClose Function
-const saveButton = document.querySelector(".modal__button");
-saveButton.addEventListener("click", saveAndCloseModal);
-
-function saveAndCloseModal(event) {
-  // Prevent default form submission behavior
-  event.preventDefault();
-
-  // Get the new values entered by the user
-  const titleInput = document.querySelector(".modal__profile-edit");
-  const descriptionInput = document.querySelector(".modal__description-edit");
-  const newTitle = titleInput.value;
-  const newDescription = descriptionInput.value;
-
-  // Update the name and about me sections on the page with the new values
-  const title = document.querySelector(".profile__title");
-  const description = document.querySelector(".profile__description");
-  title.textContent = newTitle;
-  description.textContent = newDescription;
-
-  // Remove the modal_opened class from the modal to close it
-  const modal = document.querySelector(".modal");
-  modal.classList.remove("modal_opened");
-}
-
 function getCardElement(data) {
   // Clone the template element and its content
-  const template = document.querySelector("#card-template");
   const cardElement = template.content.cloneNode(true);
 
   // Access the card title and image elements
@@ -101,9 +68,6 @@ function getCardElement(data) {
 }
 
 function renderInitialCards(initialCards) {
-  // Get the cards list element
-  const cardsList = document.querySelector(".cards__list");
-
   // Loop through the initial cards array and create a new card element for each
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
@@ -113,3 +77,51 @@ function renderInitialCards(initialCards) {
 
 // Call the renderInitialCards function to populate the initial cards on page load
 renderInitialCards(initialCards);
+
+// Define for OpenModal Function
+editButton.addEventListener("click", openModal);
+
+function openModal() {
+  // Get the form input elements
+  const titleInput = document.querySelector(".modal__input__profile-edit");
+  const descriptionInput = document.querySelector(
+    ".modal__input__description-edit"
+  );
+
+  // Set the initial values of the form fields
+  titleInput.value = profileTitle.textContent;
+  descriptionInput.value = profileDescription.textContent;
+
+  // Add the modal_opened class to the modal to open it
+  modal.classList.add("modal_opened");
+}
+
+//Close Edit Modal//
+closeButton.addEventListener("click", closeModal);
+
+function closeModal() {
+  modal.classList.remove("modal_opened");
+}
+
+// Definitions for saveAndClose Function
+saveButton.addEventListener("click", saveAndCloseModal);
+
+function saveAndCloseModal(event) {
+  // Prevent default form submission behavior
+  event.preventDefault();
+
+  // Get the new values entered by the user
+  const titleInput = document.querySelector(".modal__input__profile-edit");
+  const descriptionInput = document.querySelector(
+    ".modal__input__description-edit"
+  );
+  const newTitle = titleInput.value;
+  const newDescription = descriptionInput.value;
+
+  // Update the name and about me sections on the page with the new values
+  profileTitle.textContent = newTitle;
+  profileDescription.textContent = newDescription;
+
+  // Remove the modal_opened class from the modal to close it
+  modal.classList.remove("modal_opened");
+}
