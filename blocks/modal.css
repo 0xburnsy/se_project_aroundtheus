@@ -21,7 +21,6 @@
   position: relative;
   display: flex;
   width: 430px;
-  height: 330px;
   border-radius: 10px;
   background-color: white;
   color: black;
@@ -42,7 +41,6 @@
   background-repeat: no-repeat;
   background-size: contain;
   width: 40px;
-  height: 40px;
 }
 
 .modal__form {
@@ -51,7 +49,6 @@
   display: flex;
   flex-direction: column;
   width: 430px;
-  height: 330px;
   border-radius: 10px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
@@ -66,21 +63,20 @@
   margin: 34px 64px 0 36px;
 }
 
-.modal__input__profile-edit {
+.modal__input {
   max-width: 358px;
-  margin: 54px 36px 27.26px 36px;
-  height: 27.26px;
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.modal__input__description-edit {
-  max-width: 358px;
-  margin: 0px 36px 48px 36px;
   height: 27.26px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: #000000;
+}
+
+.modal__input__profile-edit {
+  margin: 54px 36px 0px 36px;
+}
+
+.modal__input__description-edit {
+  margin: 29.74px 36px 48px 36px;
 }
 
 .modal__button {
@@ -92,12 +88,13 @@
   height: 50.15px;
   border-radius: 2px;
   padding: 13.66px 124px 18.49px 124px;
-  font-family: "Inter";
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  border: none;
 }
 
 @media screen and (max-width: 635px) {
@@ -122,9 +119,5 @@
   .modal__close {
     top: -61px;
     right: 0;
-  }
-
-  .modfont-size {
-    font-size: 18px;
   }
 }
