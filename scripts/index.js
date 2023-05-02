@@ -83,10 +83,8 @@ editButton.addEventListener("click", openModal);
 
 function openModal() {
   // Get the form input elements
-  const titleInput = document.querySelector(".modal__input__profile-edit");
-  const descriptionInput = document.querySelector(
-    ".modal__input__description-edit"
-  );
+  const titleInput = document.querySelector(".modal__input-profile");
+  const descriptionInput = document.querySelector(".modal__input-description");
 
   // Set the initial values of the form fields
   titleInput.value = profileTitle.textContent;
@@ -111,10 +109,8 @@ function saveAndCloseModal(event) {
   event.preventDefault();
 
   // Get the new values entered by the user
-  const titleInput = document.querySelector(".modal__input__profile-edit");
-  const descriptionInput = document.querySelector(
-    ".modal__input__description-edit"
-  );
+  const titleInput = document.querySelector(".modal__input-profile");
+  const descriptionInput = document.querySelector(".modal__input-description");
   const newTitle = titleInput.value;
   const newDescription = descriptionInput.value;
 
