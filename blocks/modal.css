@@ -41,6 +41,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   width: 40px;
+  height: 40px;
+}
+
+.modal__close:hover {
+  opacity: 0.6;
 }
 
 .modal__form {
@@ -69,6 +74,10 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: #000000;
+  font-family: Inter, "Arial", "Helvetica", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
 }
 
 .modal__input__profile-edit {
@@ -97,7 +106,20 @@
   border: none;
 }
 
+.modal__button:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 635px) {
+  .modal__title {
+    font-family: Inter, "Arial", "Helvetica", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21.78px;
+    margin-left: 22px;
+  }
+
   .modal__container {
     max-width: 282px;
   }
@@ -107,7 +129,8 @@
   }
 
   .modal__button {
-    max-width: 238px;
+    width: 238px;
+    height: 46px;
     padding: 14px 100px 14px 100px;
     margin: 0px 22px 25px 22px;
   }
@@ -116,8 +139,15 @@
     margin-top: 75px;
   }
 
+  .modal__input {
+    margin-right: 22px;
+    margin-left: 22px;
+  }
+
   .modal__close {
-    top: -61px;
+    width: 26px;
+    height: 26px;
+    top: -41px;
     right: 0;
   }
 }
