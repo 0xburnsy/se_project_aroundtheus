@@ -101,6 +101,13 @@ function closeModal() {
   modal.classList.remove("modal_opened");
 }
 
+// Definitions for saveAndClose Function
+saveButton.addEventListener("submit", saveAndCloseModal);
+
+// Add the "submit" event listener to the form
+const modalForm = document.querySelector(".modal__form");
+modalForm.addEventListener("submit", saveAndCloseModal);
+
 function saveAndCloseModal(event) {
   // Prevent default form submission behavior
   event.preventDefault();
