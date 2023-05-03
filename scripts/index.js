@@ -21,6 +21,10 @@ const template = document.querySelector("#card-template");
 // Get the cards list element
 const cardsList = document.querySelector(".cards__list");
 
+// Get the form input elements
+const titleInput = document.querySelector(".modal__input-profile");
+const descriptionInput = document.querySelector(".modal__input-description");
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -82,10 +86,6 @@ renderInitialCards(initialCards);
 editButton.addEventListener("click", openModal);
 
 function openModal() {
-  // Get the form input elements
-  const titleInput = document.querySelector(".modal__input-profile");
-  const descriptionInput = document.querySelector(".modal__input-description");
-
   // Set the initial values of the form fields
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
@@ -101,16 +101,11 @@ function closeModal() {
   modal.classList.remove("modal_opened");
 }
 
-// Definitions for saveAndClose Function
-saveButton.addEventListener("click", saveAndCloseModal);
-
 function saveAndCloseModal(event) {
   // Prevent default form submission behavior
   event.preventDefault();
 
   // Get the new values entered by the user
-  const titleInput = document.querySelector(".modal__input-profile");
-  const descriptionInput = document.querySelector(".modal__input-description");
   const newTitle = titleInput.value;
   const newDescription = descriptionInput.value;
 
