@@ -78,21 +78,18 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
+  margin: 29.74px 36px 0px 36px;
 }
 
-.modal__input-profile {
-  margin: 54px 36px 0px 36px;
-}
-
-.modal__input-description {
-  margin: 29.74px 36px 48px 36px;
+.modal__input:first-child {
+  margin: 54px 36px 29.74px 36px;
 }
 
 .modal__button {
   cursor: pointer;
   background: black;
   color: white;
-  margin: 0px 36px 36px 36px;
+  margin: 48px 36px 36px 36px;
   max-width: 358px;
   height: 50.15px;
   border-radius: 2px;
@@ -130,7 +127,9 @@
     width: 238px;
     height: 46px;
     padding: 14px 100px 14px 100px;
-    margin: 0px 22px 25px 22px;
+    margin-right: 22px;
+    margin-bottom: 25px;
+    margin-left: 22px;
     font-size: 14px;
   }
 
