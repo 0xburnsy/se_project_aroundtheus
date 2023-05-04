@@ -116,4 +116,6 @@ function saveAndCloseModal(event) {
   // Update the name and about me sections on the page with the new values
   profileTitle.textContent = newTitle;
   profileDescription.textContent = newDescription;
+
+  closeModal();
 }
