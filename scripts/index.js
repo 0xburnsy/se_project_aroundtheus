@@ -82,22 +82,9 @@ function renderInitialCards(initialCards) {
 // Call the renderInitialCards function to populate the initial cards on page load
 renderInitialCards(initialCards);
 
-// Call the openAddModal function when the "edit" button is clicked
-editButton.addEventListener("click", () => openModal(editProfileModal));
-
-function openModal() {
-  // Set the initial values of the form fields
-  titleInput.value = profileTitle.textContent;
-  descriptionInput.value = profileDescription.textContent;
-
-  // Add the modal_opened class to the modal to open it
-  editProfileModal.classList.add("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
 }
-
-//Close Edit Modal//
-profileModalCloseButton.addEventListener("click", () =>
-  closeModal(editProfileModal)
-);
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
@@ -128,23 +115,16 @@ const addCardModalButton = document.querySelector(".profile__add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 
-// Call the openAddModal function when the "add" button is clicked
+// Event Listeners
 addCardModalButton.addEventListener("click", () => openModal(addCardModal));
-
-function openModal() {
-  // Set the initial values of the form fields
+editButton.addEventListener("click", () => {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
-
-  // Add the modal_opened class to the modal to open it
-  addCardModal.classList.add("modal_opened");
-}
-
-//Close Add Modal//
+  openModal(editProfileModal);
+});
 addCardModalCloseButton.addEventListener("click", () =>
   closeModal(addCardModal)
 );
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
+profileModalCloseButton.addEventListener("click", () =>
+  closeModal(editProfileModal)
+);
