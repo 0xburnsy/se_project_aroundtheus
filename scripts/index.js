@@ -92,10 +92,9 @@ function closeModal(modal) {
 
 // Add the "submit" event listener to the form
 const modalForm = document.querySelector(".modal__form");
-modalForm.addEventListener("submit", saveAndCloseModal);
+modalForm.addEventListener("submit", handleProfileFormSubmit);
 
-function saveAndCloseModal(event) {
-  // Prevent default form submission behavior
+function handleProfileFormSubmit(event) {
   event.preventDefault();
 
   // Get the new values entered by the user
@@ -106,7 +105,7 @@ function saveAndCloseModal(event) {
   profileTitle.textContent = newTitle;
   profileDescription.textContent = newDescription;
 
-  closeModal();
+  closeModal(editProfileModal);
 }
 
 // Add Button JS
