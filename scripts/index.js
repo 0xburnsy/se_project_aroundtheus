@@ -59,6 +59,11 @@ function getCardElement(data) {
   // Access the card title and image elements
   const titleElement = cardElement.querySelector(".card__title");
   const imageElement = cardElement.querySelector(".card__image");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
 
   // Set the card title
   titleElement.textContent = data.name;
