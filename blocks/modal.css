@@ -4,17 +4,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: transparent;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   padding: 0 19px;
-  display: none;
   justify-content: center;
   align-items: center;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
 .modal_opened {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
