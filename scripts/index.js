@@ -1,6 +1,7 @@
 const titleElement = document.querySelector(".profile__title");
 const descriptionElement = document.querySelector(".profile__description");
 const editProfileModal = document.querySelector("#edit-profile-modal");
+const imageProfileModal = document.querySelector("#image-modal");
 
 // Define for OpenModal Function
 const editButton = document.querySelector(".profile__edit-button");
@@ -16,7 +17,9 @@ const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 const saveButton = document.querySelector(".modal__button");
 
 // Clone the template element and its content
-const template = document.querySelector("#card-template");
+const template = document
+  .querySelector("#card-template")
+  .content.querySelector(".card");
 
 // Get the cards list element
 const cardsList = document.querySelector(".cards__list");
@@ -53,8 +56,7 @@ const initialCards = [
 ];
 
 function getCardElement(data) {
-  // Clone the template element and its content
-  const cardElement = template.content.cloneNode(true);
+  const cardElement = template.cloneNode(true);
 
   // Access the card title and image elements
   const titleElement = cardElement.querySelector(".card__title");
@@ -68,6 +70,21 @@ function getCardElement(data) {
 
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
+  });
+
+  imageElement.addEventListener("click", () => {
+    const modalImageElement = document.querySelector(".modal__image");
+    const modalTitleElement = document.querySelector(".modal__image_title");
+    modalImageElement.setAttribute("src", imageElement.src);
+    modalImageElement.alt = data.name;
+    modalTitleElement.textContent = data.name;
+    openModal(document.querySelector("#image-modal"));
+  });
+
+  const closeImageModalButton =
+    imageProfileModal.querySelector(".modal__close");
+  closeImageModalButton.addEventListener("click", () => {
+    closeModal(imageProfileModal);
   });
 
   // Set the card title
@@ -130,10 +147,6 @@ function handleAddCardFormSubmit(event) {
 
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  // const cardElement = getCardElement({
-  //   name,
-  //   link,
-  // });
   renderCard({ name, link });
   closeModal(addCardModal);
 }
