@@ -76,15 +76,15 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
+  closeImageModalButton.addEventListener("click", () => {
+    closeModal(imageProfileModal);
+  });
+
   imageElement.addEventListener("click", () => {
     modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
     modalImageElement.alt = data.name;
     modalTitleElement.textContent = data.name;
     openModal(document.querySelector("#image-modal"));
-  });
-
-  closeImageModalButton.addEventListener("click", () => {
-    closeModal(imageProfileModal);
   });
 
   // Set the card title
