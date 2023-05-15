@@ -76,10 +76,6 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
-  closeImageModalButton.addEventListener("click", () => {
-    closeModal(imageProfileModal);
-  });
-
   imageElement.addEventListener("click", () => {
     modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
     modalImageElement.alt = data.name;
@@ -179,3 +175,6 @@ addCardModalCloseButton.addEventListener("click", () =>
 profileModalCloseButton.addEventListener("click", () =>
   closeModal(editProfileModal)
 );
+closeImageModalButton.addEventListener("click", () => {
+  closeModal(imageProfileModal);
+});
