@@ -194,3 +194,7 @@
   margin: 5px 36px 0px 36px;
   color: #ff0000;
 }
+
+.modal__button_disabled {
+  background-color: #e5e5e5;
+}
