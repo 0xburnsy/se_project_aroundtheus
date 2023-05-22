@@ -187,3 +187,10 @@
   letter-spacing: 0em;
   font-style: normal;
 }
+
+.modal__input_type_error {
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
+  font-size: 12px;
+  margin: 5px 36px 0px 36px;
+  color: #ff0000;
+}

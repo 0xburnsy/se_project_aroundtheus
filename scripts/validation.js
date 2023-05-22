@@ -1,10 +1,48 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
+function showInputError(
+  formElement,
+  inputElement,
+  { inputErrorClass, errorClass }
+) {
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  inputElement.classList.add(inputErrorClass);
+  errorMessageElement.textContent = inputElement.validationMessage;
+  errorMessageElement.classList.add(errorClass);
+}
+
+function hideInputError(
+  formElement,
+  inputElement,
+  { inputErrorClass, errorClass }
+) {
+  const errorMessageElement = formElement.querySelector(
+    `#${inputElement.id}-error`
+  );
+  inputElement.classList.remove(inputErrorClass);
+  errorMessageElement.textContent = "";
+  errorMessageElement.classList.remove(errorClass);
+}
+
+function checkInputValidity(formElement, inputElement, options) {
+  if (!inputElement.validity.valid) {
+    return showInputError(formElement, inputElement, options);
+  }
+  hideInputError(formElement, inputElement, options);
+}
+
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  console.log(inputElements);
+  const submitButton = formElement.querySelector(".modal__button");
+  inputElements.forEach((inputElement) => {
+    inputElement.addEventListener("input", (evt) => {
+      checkInputValidity(formElement, inputElement, options);
+    });
+  });
 }
 
 function enableValidation(options) {
@@ -18,12 +56,12 @@ function enableValidation(options) {
 }
 
 const config = {
-  formSelector: ".popup__form",
+  formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
 };
 
 enableValidation(config);
