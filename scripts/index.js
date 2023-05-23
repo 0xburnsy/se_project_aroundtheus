@@ -107,10 +107,12 @@ renderInitialCards(initialCards);
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", (e) => handleEscape(e, modal));
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", (e) => handleEscape(e, modal));
 }
 
 // Add the "submit" event listener to the form
@@ -161,6 +163,14 @@ function fillProfileForm() {
 function openEditProfileModal() {
   openModal(editProfileModal);
 }
+
+function handleEscape(e, modal) {
+  if (e.key === "Escape") {
+    closeModal(modal);
+  }
+}
+
+function handleOverlayClick() {}
 
 // Event Listeners
 addCardFromElement.addEventListener("submit", handleAddCardFormSubmit);
