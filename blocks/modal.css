@@ -193,6 +193,7 @@
   font-size: 12px;
   margin: 5px 36px 0px 36px;
   color: #ff0000;
+  border-bottom-color: #ff0000;
 }
 
 .modal__button_disabled {
