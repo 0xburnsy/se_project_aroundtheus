@@ -36,8 +36,19 @@ function hasInvalidInput(inputList) {
 }
 
 // disable button function
+function disableButton(submitButton, inactiveButtonClass) {
+  submitButton.classList.add(inactiveButtonClass);
+  submitButton.disabled = true;
+  return;
+}
 
 // enable button function
+function enableButton(submitButton, inactiveButtonClass) {
+  {
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
+  }
+}
 
 function toggleButtonState(
   inputElements,
@@ -52,14 +63,10 @@ function toggleButtonState(
   });
 
   if (hasInvalidInput(inputElements)) {
-    submitButton.classList.add(inactiveButtonClass);
-    submitButton.disabled = true;
+    disableButton(submitButton, inactiveButtonClass);
     return;
   }
-  {
-    submitButton.classList.remove(inactiveButtonClass);
-    submitButton.disabled = false;
-  }
+  enableButton(submitButton, inactiveButtonClass);
 }
 
 function setEventListeners(formElement, options) {
