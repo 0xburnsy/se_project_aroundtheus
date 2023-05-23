@@ -108,11 +108,13 @@ renderInitialCards(initialCards);
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", (e) => handleEscape(e, modal));
+  // document.addEventListener("click", (e) => handleClickOutside(e, modal));
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", (e) => handleEscape(e, modal));
+  // document.removeEventListener("click", (e) => handleClickOutside(e, modal));
 }
 
 // Add the "submit" event listener to the form
@@ -170,7 +172,11 @@ function handleEscape(e, modal) {
   }
 }
 
-function handleOverlayClick() {}
+function handleClickOutside(e, modal) {
+  if (!modal.contains(e.target)) {
+    closeModal(modal);
+  }
+}
 
 // Event Listeners
 addCardFromElement.addEventListener("submit", handleAddCardFormSubmit);
