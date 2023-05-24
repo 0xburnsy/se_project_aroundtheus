@@ -51,20 +51,33 @@
     <div class="modal" id="edit-profile-modal">
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
-        <form class="modal__form">
+        <form class="modal__form" id="edit-profile">
           <h2 class="modal__title">Edit profile</h2>
           <input
             class="modal__input modal__input-profile"
+            id="owner-name"
+            placeholder="Name"
             type="text"
             name="title"
+            maxlength="40"
+            minlength="2"
             required
           />
+          <span class="modal__input_type_error" id="owner-name-error"></span>
           <input
             class="modal__input modal__input-description"
             type="text"
+            id="owner-description"
+            placeholder="Description"
             name="description"
+            maxlength="200"
+            minlength="2"
             required
           />
+          <span
+            class="modal__input_type_error"
+            id="owner-description-error"
+          ></span>
           <button type="submit" class="modal__button">Save</button>
         </form>
       </div>
@@ -72,24 +85,37 @@
     <div class="modal" id="add-card-modal">
       <div class="modal__container">
         <button type="button" class="modal__close"></button>
-        <form class="modal__form">
+        <form class="modal__form" id="new-place">
           <h2 class="modal__title">New Place</h2>
           <input
             class="modal__input modal__input-title"
+            id="new-place"
             type="text"
             name="title"
             placeholder="Title"
+            minlength="1"
+            maxlength="30"
             required
           />
+          <span class="modal__input_type_error" id="new-place-error"></span>
           <input
             class="modal__input modal__input-link"
+            id="new-image-url"
             type="url"
             name="description"
             placeholder="Image link"
             required
           />
-          <button type="submit" class="modal__button">Create</button>
+          <span class="modal__input_type_error" id="new-image-url-error"></span>
+          <button
+            type="submit"
+            class="modal__button modal__button_disabled"
+            disabled
+          >
+            Create
+          </button>
         </form>
+        <div class="modal__overlay"></div>
       </div>
     </div>
     <div class="modal" id="image-modal">
@@ -99,6 +125,7 @@
         <h2 class="modal__image modal__image_title"></h2>
       </div>
     </div>
+    <script src="./scripts/validation.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>

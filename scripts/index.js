@@ -107,10 +107,18 @@ renderInitialCards(initialCards);
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", (e) => {
+    handleEscape(e, modal);
+    handleClickOutside(e, modal);
+  });
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", (e) => {
+    handleEscape(e, modal);
+    handleClickOutside(e, modal);
+  });
 }
 
 // Add the "submit" event listener to the form
@@ -161,6 +169,33 @@ function fillProfileForm() {
 function openEditProfileModal() {
   openModal(editProfileModal);
 }
+
+function handleEscape(e, modal) {
+  if (e.key === "Escape") {
+    closeModal(modal);
+  }
+}
+
+function handleClickOutside(
+  modalContainerId,
+  modalCloseClass,
+  closeModalFunction
+) {
+  const modalWindow = document.getElementById(modalContainerId);
+  modalWindow.addEventListener("mousedown", (e) => {
+    if (
+      !e.target.classList.contains(modalContainerId) &&
+      !e.target.classList.contains(modalCloseClass)
+    ) {
+      closeModalFunction(modalWindow);
+    }
+  });
+}
+
+// Call the function for each modal
+handleClickOutside("edit-profile-modal", "modal__close", closeModal);
+handleClickOutside("add-card-modal", "modal__close", closeModal);
+handleClickOutside("image-modal", "modal__close", closeModal);
 
 // Event Listeners
 addCardFromElement.addEventListener("submit", handleAddCardFormSubmit);
