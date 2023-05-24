@@ -109,7 +109,6 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", (e) => {
     handleEscape(e, modal);
-    handleClickOutside(e, modal);
   });
 }
 
@@ -117,7 +116,6 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", (e) => {
     handleEscape(e, modal);
-    handleClickOutside(e, modal);
   });
 }
 
@@ -176,26 +174,18 @@ function handleEscape(e, modal) {
   }
 }
 
-function handleClickOutside(
-  modalContainerId,
-  modalCloseClass,
-  closeModalFunction
-) {
-  const modalWindow = document.getElementById(modalContainerId);
-  modalWindow.addEventListener("mousedown", (e) => {
-    if (
-      !e.target.classList.contains(modalContainerId) &&
-      !e.target.classList.contains(modalCloseClass)
-    ) {
-      closeModalFunction(modalWindow);
-    }
+function handleClickOutside(e, modal) {
+  const profileModalWindow = document.querySelector("#edit-profile-modal");
+  profileModalWindow.addEventListener("mousedown", (e) => {
+    console.log(e.target, "triggered");
   });
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
+  ) {
+    closeModal(editProfileModal);
+  }
 }
-
-// Call the function for each modal
-handleClickOutside("edit-profile-modal", "modal__close", closeModal);
-handleClickOutside("add-card-modal", "modal__close", closeModal);
-handleClickOutside("image-modal", "modal__close", closeModal);
 
 // Event Listeners
 addCardFromElement.addEventListener("submit", handleAddCardFormSubmit);
