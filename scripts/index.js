@@ -110,6 +110,15 @@ function openModal(modal) {
   document.addEventListener("keydown", (e) => {
     handleEscape(e, modal);
   });
+  document.addEventListener("mousedown", (e) => {
+    handleClickOutsideProfile(e, modal);
+  });
+  document.addEventListener("mousedown", (e) => {
+    handleClickOutsideCard(e, modal);
+  });
+  document.addEventListener("mousedown", (e) => {
+    handleClickOutsideImage(e, modal);
+  });
 }
 
 function closeModal(modal) {
@@ -174,16 +183,42 @@ function handleEscape(e, modal) {
   }
 }
 
-function handleClickOutside(e, modal) {
+function handleClickOutsideProfile(e, modal) {
   const profileModalWindow = document.querySelector("#edit-profile-modal");
   profileModalWindow.addEventListener("mousedown", (e) => {
-    console.log(e.target, "triggered");
+    console.log(e.target);
   });
   if (
     e.target.classList.contains("modal") ||
     e.target.classList.contains("modal__close")
   ) {
     closeModal(editProfileModal);
+  }
+}
+
+function handleClickOutsideCard(e, modal) {
+  const addModalWindow = document.querySelector("#add-card-modal");
+  addModalWindow.addEventListener("mousedown", (e) => {
+    console.log(e.target);
+  });
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
+  ) {
+    closeModal(addCardModal);
+  }
+}
+
+function handleClickOutsideImage(e, modal) {
+  const imageModalWindow = document.querySelector("#add-card-modal");
+  imageModalWindow.addEventListener("mousedown", (e) => {
+    console.log(e.target);
+  });
+  if (
+    e.target.classList.contains("modal") ||
+    e.target.classList.contains("modal__close")
+  ) {
+    closeModal(imageProfileModal);
   }
 }
 
