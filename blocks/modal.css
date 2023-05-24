@@ -188,7 +188,7 @@
   font-style: normal;
 }
 
-.modal__input--type-error {
+.modal__input__type-error {
   font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-size: 12px;
   margin: 5px 36px 0px 36px;
