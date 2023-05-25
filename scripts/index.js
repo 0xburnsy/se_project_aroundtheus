@@ -194,8 +194,8 @@ function handleClickOutsideCard(e, modal) {
     console.log(e.target);
   });
   if (
-    e.target.classList.contains("modal") ||
-    e.target.classList.contains("modal__close")
+    e.target.classList.contains(addCardModal) ||
+    e.target.classList.contains(addCardModalCloseButton)
   ) {
     closeModal(addCardModal);
   }
@@ -219,13 +219,4 @@ addCardModalButton.addEventListener("click", () => openModal(addCardModal));
 editProfileButton.addEventListener("click", () => {
   fillProfileForm(editProfileModal);
   openEditProfileModal();
-});
-addCardModalCloseButton.addEventListener("click", () =>
-  closeModal(addCardModal)
-);
-profileModalCloseButton.addEventListener("click", () =>
-  closeModal(editProfileModal)
-);
-closeImageModalButton.addEventListener("click", () => {
-  closeModal(imageProfileModal);
 });
