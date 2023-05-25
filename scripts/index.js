@@ -177,40 +177,45 @@ function handleEscape(e, modal) {
   }
 }
 
-function handleClickOutsideProfile(e, modal) {
-  editProfileModal.addEventListener("mousedown", (e) => {
-    console.log(e.target);
-  });
-  if (
-    e.target.classList.contains("modal") ||
-    e.target.classList.contains("modal__close")
-  ) {
-    closeModal(editProfileModal);
-  }
+function handleMouseDown(e, modal) {
+  handleClickOutsideCard(e, modal);
 }
 
-function handleClickOutsideCard(e, modal) {
-  addCardModal.addEventListener("mousedown", (e) => {
-    console.log(e.target);
+handleClickOutsideProfile();
+function handleClickOutsideProfile(modal) {
+  document.addEventListener("mousedown", (e) => {
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("modal__close")
+    ) {
+      closeModal(editProfileModal);
+    }
   });
-  if (
-    e.target.classList.contains(addCardModal) ||
-    e.target.classList.contains(addCardModalCloseButton)
-  ) {
-    closeModal(addCardModal);
-  }
 }
 
-function handleClickOutsideImage(e, modal) {
+handleClickOutsideCard();
+function handleClickOutsideCard(modal) {
+  document.addEventListener("mousedown", (e) => {
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("modal__close")
+    ) {
+      closeModal(addCardModal);
+    }
+  });
+}
+
+handleClickOutsideImage();
+function handleClickOutsideImage(modal) {
   imageProfileModal.addEventListener("mousedown", (e) => {
     console.log(e.target);
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("modal__close")
+    ) {
+      closeModal(imageProfileModal);
+    }
   });
-  if (
-    e.target.classList.contains("modal") ||
-    e.target.classList.contains("modal__close")
-  ) {
-    closeModal(imageProfileModal);
-  }
 }
 
 // Event Listeners
