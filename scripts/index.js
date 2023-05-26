@@ -141,7 +141,7 @@ function handleProfileFormSubmit(event) {
   closeModal(editProfileModal);
 }
 
-const addCardModalButton = document.querySelector(".card__add-button");
+const addCardModalButton = document.querySelector(".profile__card-add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 const addCardFormElement = addCardModal.querySelector(".modal__form");

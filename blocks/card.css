@@ -74,14 +74,3 @@
 .card__delete-button:hover {
   opacity: 60%;
 }
-
-.card__add-button {
-  display: flex;
-  background: transparent url(../images/Add.svg) center no-repeat;
-  width: 150px;
-  height: 50px;
-  margin-left: auto;
-  border: 2px solid #ffffff;
-  border-radius: 2px;
-  cursor: pointer;
-}
