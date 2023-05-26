@@ -15,7 +15,8 @@ const profileDescription = document.querySelector(".profile__description");
 const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 
 // Definitions for saveAndClose Function
-const profileSaveButton = document.querySelector(".modal__button");
+const profileSaveButton = document.getElementById("profileSaveButton");
+const cardSaveButton = document.getElementById("addCardSaveButton");
 
 const modalImageElement = document.querySelector(".modal__image");
 const modalTitleElement = document.querySelector(".modal__image_title");
@@ -143,18 +144,37 @@ function handleProfileFormSubmit(event) {
 const addCardModalButton = document.querySelector(".profile__add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
-const addCardFromElement = addCardModal.querySelector(".modal__form");
-const cardTitleInput = addCardFromElement.querySelector(".modal__input-title");
-const cardUrlInput = addCardFromElement.querySelector(".modal__input-link");
+const addCardFormElement = addCardModal.querySelector(".modal__form");
+const cardTitleInput = addCardFormElement.querySelector(".modal__input-title");
+const cardUrlInput = addCardFormElement.querySelector(".modal__input-link");
 
 function handleAddCardFormSubmit(event) {
   event.preventDefault();
 
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+
   renderCard({ name, link });
   closeModal(addCardModal);
-  addCardFromElement.reset();
+  addCardFormElement.reset();
+  handleCardFormInputs();
+}
+
+function handleCardFormInputs() {
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+
+  if (name.trim() === "" || link.trim() === "") {
+    // Disable the Submit button
+    cardSaveButton.disabled = true;
+    cardSaveButton.classList.add("disabled");
+    cardSaveButton.classList.add("modal__button_disabled");
+    return; // Exit the function
+  }
+  // Re-enable the Submit button
+  cardSaveButton.disabled = false;
+  cardSaveButton.classList.remove("disabled");
+  cardSaveButton.classList.remove("modal__button_disabled");
 }
 
 function renderCard(cardData) {
@@ -219,7 +239,7 @@ function handleClickOutsideImage(modal) {
 }
 
 // Event Listeners
-addCardFromElement.addEventListener("submit", handleAddCardFormSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 addCardModalButton.addEventListener("click", () => openModal(addCardModal));
 editProfileButton.addEventListener("click", () => {
   fillProfileForm(editProfileModal);
