@@ -141,7 +141,7 @@ function handleProfileFormSubmit(event) {
   closeModal(editProfileModal);
 }
 
-const addCardModalButton = document.querySelector(".profile__add-button");
+const addCardModalButton = document.querySelector(".card__add-button");
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = addCardModal.querySelector(".modal__close");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
@@ -153,28 +153,16 @@ function handleAddCardFormSubmit(event) {
 
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
+  const addCardSubmitButton = document.getElementById("addCardSaveButton");
 
   renderCard({ name, link });
   closeModal(addCardModal);
   addCardFormElement.reset();
-  handleCardFormInputs();
-}
-
-function handleCardFormInputs() {
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-
-  if (name.trim() === "" || link.trim() === "") {
-    // Disable the Submit button
-    cardSaveButton.disabled = true;
-    cardSaveButton.classList.add("disabled");
-    cardSaveButton.classList.add("modal__button_disabled");
-    return; // Exit the function
-  }
-  // Re-enable the Submit button
-  cardSaveButton.disabled = false;
-  cardSaveButton.classList.remove("disabled");
-  cardSaveButton.classList.remove("modal__button_disabled");
+  toggleButtonState(
+    [cardTitleInput, cardUrlInput],
+    addCardSubmitButton,
+    config
+  );
 }
 
 function renderCard(cardData) {
