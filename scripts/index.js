@@ -191,7 +191,7 @@ function handleMouseDown(e, modal) {
 
 handleClickOutsideProfile();
 function handleClickOutsideProfile(modal) {
-  document.addEventListener("mousedown", (e) => {
+  editProfileModal.addEventListener("mousedown", (e) => {
     if (
       e.target.classList.contains("modal") ||
       e.target.classList.contains("modal__close")
@@ -203,7 +203,7 @@ function handleClickOutsideProfile(modal) {
 
 handleClickOutsideCard();
 function handleClickOutsideCard(modal) {
-  document.addEventListener("mousedown", (e) => {
+  addCardModal.addEventListener("mousedown", (e) => {
     if (
       e.target.classList.contains("modal") ||
       e.target.classList.contains("modal__close")
