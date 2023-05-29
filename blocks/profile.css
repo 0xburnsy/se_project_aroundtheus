@@ -131,6 +131,10 @@
   .profile__description {
     justify-content: center;
   }
+
+  .profile__card-add-button {
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 320px) {
