@@ -1,3 +1,5 @@
+import Card from "../components/Card.js";
+
 const titleElement = document.querySelector(".profile__title");
 const descriptionElement = document.querySelector(".profile__description");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -60,22 +62,33 @@ const initialCards = [
   },
 ];
 
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+card.getView();
+
+const cardSelector = "#card-template";
+
+// this is what we are
 function getCardElement(data) {
   const cardElement = template.cloneNode(true);
 
   // Access the card title and image elements
   const titleElement = cardElement.querySelector(".card__title");
   const imageElement = cardElement.querySelector(".card__image");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  const deleteButton = cardElement.querySelector(".card__delete-button");
+  // const likeButton = cardElement.querySelector(".card__like-button");
+  // const deleteButton = cardElement.querySelector(".card__delete-button");
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+  // likeButton.addEventListener("click", () => {
+  //   likeButton.classList.toggle("card__like-button_active");
+  // });
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  // deleteButton.addEventListener("click", () => {
+  //   cardElement.remove();
+  // });
 
   imageElement.addEventListener("click", () => {
     modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
