@@ -67,14 +67,20 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
-card.getView();
-
 const cardSelector = "#card-template";
 
-// this is what we are
 function getCardElement(data) {
-  const cardElement = template.cloneNode(true);
+  const card = new Card(cardData, "#card-template");
+  const cardElement = card.getView();
+  return cardElement;
+}
+
+function renderInitialCards(initialCards) {
+  initialCards.forEach((cardData) => {
+    const cardElement = getCardElement(cardData);
+    cardsList.appendChild(cardElement);
+  });
+}
 
   // Access the card title and image elements
   const titleElement = cardElement.querySelector(".card__title");
@@ -108,13 +114,13 @@ function getCardElement(data) {
   return cardElement;
 }
 
-function renderInitialCards(initialCards) {
-  // Loop through the initial cards array and create a new card element for each
-  initialCards.forEach((cardData) => {
-    const cardElement = getCardElement(cardData);
-    cardsList.appendChild(cardElement);
-  });
-}
+// function renderInitialCards(initialCards) {
+//   // Loop through the initial cards array and create a new card element for each
+//   initialCards.forEach((cardData) => {
+//     const cardElement = getCardElement(cardData);
+//     cardsList.appendChild(cardElement);
+//   });
+// }
 
 // Call the renderInitialCards function to populate the initial cards on page load
 renderInitialCards(initialCards);
@@ -178,10 +184,10 @@ function handleAddCardFormSubmit(event) {
   );
 }
 
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardsList.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   const cardElement = getCardElement(cardData);
+//   cardsList.prepend(cardElement);
+// }
 
 function fillProfileForm() {
   titleInput.value = profileTitle.textContent;
