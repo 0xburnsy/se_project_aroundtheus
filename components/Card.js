@@ -19,12 +19,12 @@ export default class Card {
         this._handleDeleteCard();
       });
 
-    imageElement.addEventListener("click", () => {
-      modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
-      modalImageElement.alt = data.name;
-      modalTitleElement.textContent = data.name;
-      openModal(imageProfileModal);
-    });
+    // imageElement.addEventListener("click", () => {
+    //   modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
+    //   modalImageElement.alt = data.name;
+    //   modalTitleElement.textContent = data.name;
+    //   openModal(imageProfileModal);
+    // });
   }
 
   _handleLikeIcon() {
