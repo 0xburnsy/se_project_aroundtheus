@@ -70,7 +70,7 @@ const cardData = {
 const cardSelector = "#card-template";
 
 function getCardElement(data) {
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(data, "#card-template");
   const cardElement = card.getView();
   return cardElement;
 }
@@ -81,46 +81,6 @@ function renderInitialCards(initialCards) {
     cardsList.appendChild(cardElement);
   });
 }
-
-  // Access the card title and image elements
-  const titleElement = cardElement.querySelector(".card__title");
-  const imageElement = cardElement.querySelector(".card__image");
-  // const likeButton = cardElement.querySelector(".card__like-button");
-  // const deleteButton = cardElement.querySelector(".card__delete-button");
-
-  // likeButton.addEventListener("click", () => {
-  //   likeButton.classList.toggle("card__like-button_active");
-  // });
-
-  // deleteButton.addEventListener("click", () => {
-  //   cardElement.remove();
-  // });
-
-  imageElement.addEventListener("click", () => {
-    modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
-    modalImageElement.alt = data.name;
-    modalTitleElement.textContent = data.name;
-    openModal(imageProfileModal);
-  });
-
-  // Set the card title
-  titleElement.textContent = data.name;
-
-  // Set the image source and alt text
-  imageElement.src = data.link;
-  imageElement.alt = data.name;
-
-  // Return the filled-in card element
-  return cardElement;
-}
-
-// function renderInitialCards(initialCards) {
-//   // Loop through the initial cards array and create a new card element for each
-//   initialCards.forEach((cardData) => {
-//     const cardElement = getCardElement(cardData);
-//     cardsList.appendChild(cardElement);
-//   });
-// }
 
 // Call the renderInitialCards function to populate the initial cards on page load
 renderInitialCards(initialCards);
@@ -183,11 +143,6 @@ function handleAddCardFormSubmit(event) {
     config
   );
 }
-
-// function renderCard(cardData) {
-//   const cardElement = getCardElement(cardData);
-//   cardsList.prepend(cardElement);
-// }
 
 function fillProfileForm() {
   titleInput.value = profileTitle.textContent;
