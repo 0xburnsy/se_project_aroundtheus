@@ -1,3 +1,18 @@
+// const modalImageElement = document.querySelector(".modal__image");
+// const modalTitleElement = document.querySelector(".modal__image_title");
+
+// function closeModal(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", closeByEscape);
+// }
+
+// function closeByEscape(evt) {
+//   if (evt.key === "Escape") {
+//     const openedPopup = document.querySelector(".modal_opened");
+//     closeModal(openedPopup);
+//   }
+// }
+
 export default class Card {
   constructor({ name, link }, cardSelector) {
     this._name = name;
@@ -9,7 +24,6 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
-        console.log("Clicked!");
         this._handleLikeIcon();
       });
 
@@ -17,6 +31,12 @@ export default class Card {
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
+      });
+
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handleImagePreview();
       });
 
     // imageElement.addEventListener("click", () => {
@@ -38,7 +58,12 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleImagePreview() {}
+  _handleImagePreview() {
+    modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
+    modalImageElement.alt = data.name;
+    modalTitleElement.textContent = data.name;
+    openModal(imageProfileModal);
+  }
 
   _getTemplate() {
     return document
@@ -49,9 +74,10 @@ export default class Card {
 
   getView() {
     this._cardElement = this._getTemplate();
-    this._cardElement.querySelector(
-      ".card__image"
-    ).style.backgroundImage = `url(${this._link})`;
+    const imageElement = document.createElement("img");
+    imageElement.src = this._link;
+    imageElement.classList.add("card__image");
+    this._cardElement.querySelector(".card__image").replaceWith(imageElement);
     this._cardElement.querySelector(".card__title").textContent = this._name;
 
     this._setEventListeners();
