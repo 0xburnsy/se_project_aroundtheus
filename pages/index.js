@@ -70,7 +70,7 @@ const cardData = {
 const cardSelector = "#card-template";
 
 function getCardElement(data) {
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(data, "#card-template");
   const cardElement = card.getView();
   return cardElement;
 }
