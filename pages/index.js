@@ -1,3 +1,4 @@
+import FormValidator from "../components/FormValidator.js";
 import Card from "../components/Card.js";
 
 const titleElement = document.querySelector(".profile__title");
@@ -144,6 +145,11 @@ function handleAddCardFormSubmit(event) {
   );
 }
 
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData);
+  cardsList.prepend(cardElement);
+}
+
 function fillProfileForm() {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
@@ -207,3 +213,32 @@ editProfileButton.addEventListener("click", () => {
   fillProfileForm(editProfileModal);
   openEditProfileModal();
 });
+
+//   _____                     __     __    _ _     _       _   _
+//  |  ___|__  _ __ _ __ ___   \ \   / /_ _| (_) __| | __ _| |_(_) ___  _ __
+//  | |_ / _ \| '__| '_ ` _ \   \ \ / / _` | | |/ _` |/ _` | __| |/ _ \| '_ \
+//  |  _| (_) | |  | | | | | |   \ V / (_| | | | (_| | (_| | |_| | (_) | | | |
+//  |_|  \___/|_|  |_| |_| |_|    \_/ \__,_|_|_|\__,_|\__,_|\__|_|\___/|_| |_|
+
+const validationSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input-type-error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormElement = document.querySelector("#edit-profile-form");
+const addFormElement = document.querySelector("#new-place-form");
+
+const editFormValidator = new FormValidator(
+  validationSettings,
+  editFormElement
+);
+const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+const formElement = document.querySelector(".modal__form");
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
