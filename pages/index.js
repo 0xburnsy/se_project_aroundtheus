@@ -21,9 +21,6 @@ const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 const profileSaveButton = document.getElementById("profileSaveButton");
 const cardSaveButton = document.getElementById("addCardSaveButton");
 
-const modalImageElement = document.querySelector(".modal__image");
-const modalTitleElement = document.querySelector(".modal__image_title");
-
 // Clone the template element and its content
 const template = document
   .querySelector("#card-template")
@@ -35,23 +32,6 @@ const cardsList = document.querySelector(".cards__list");
 // Get the form input elements
 const titleInput = document.querySelector(".modal__input-profile");
 const descriptionInput = document.querySelector(".modal__input-description");
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeByEscape);
-}
-
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeByEscape);
-}
-
-function closeByEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedPopup = document.querySelector(".modal_opened");
-    closeModal(openedPopup);
-  }
-}
 
 // Add the "submit" event listener to the form
 const profileFormElement = editProfileModal.querySelector(".modal__form");
@@ -226,27 +206,4 @@ function handleClickOutsideCard(modal) {
       closeModal(addCardModal);
     }
   });
-}
-
-handleClickOutsideImage();
-function handleClickOutsideImage(modal) {
-  imageProfileModal.addEventListener("mousedown", (e) => {
-    console.log(e.target);
-    if (
-      e.target.classList.contains("modal") ||
-      e.target.classList.contains("modal__close")
-    ) {
-      closeModal(imageProfileModal);
-    }
-  });
-}
-
-function handleEscape(e, modal) {
-  if (e.key === "Escape") {
-    closeModal(modal);
-  }
-}
-
-function handleMouseDown(e, modal) {
-  handleClickOutsideCard(e, modal);
 }

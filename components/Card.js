@@ -1,17 +1,6 @@
-// const modalImageElement = document.querySelector(".modal__image");
-// const modalTitleElement = document.querySelector(".modal__image_title");
-
-// function closeModal(modal) {
-//   modal.classList.remove("modal_opened");
-//   document.removeEventListener("keydown", closeByEscape);
-// }
-
-// function closeByEscape(evt) {
-//   if (evt.key === "Escape") {
-//     const openedPopup = document.querySelector(".modal_opened");
-//     closeModal(openedPopup);
-//   }
-// }
+const previewModal = document.querySelector("#image-modal");
+const previewModalImage = previewModal.querySelector(".modal__image");
+const previewModalTitle = previewModal.querySelector(".modal__image_title");
 
 export default class Card {
   constructor({ name, link }, cardSelector) {
@@ -38,13 +27,6 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleImagePreview();
       });
-
-    // imageElement.addEventListener("click", () => {
-    //   modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
-    //   modalImageElement.alt = data.name;
-    //   modalTitleElement.textContent = data.name;
-    //   openModal(imageProfileModal);
-    // });
   }
 
   _handleLikeIcon() {
@@ -58,11 +40,11 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleImagePreview() {
-    modalImageElement.setAttribute("src", imageElement.getAttribute("src"));
-    modalImageElement.alt = data.name;
-    modalTitleElement.textContent = data.name;
-    openModal(imageProfileModal);
+  _handleImagePreview(previewModal, previewModalImage, previewModalTitle) {
+    previewModalImage.src = this._link;
+    previewModalImage.alt = this._link;
+    previewModalTitle.textContent = this._name;
+    openModal(previewModal);
   }
 
   _getTemplate() {
