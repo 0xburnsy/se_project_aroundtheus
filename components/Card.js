@@ -1,13 +1,15 @@
 import { openModal } from "../utils/utils.js";
-import { closeModal } from "../utils/utils.js";
-import { handleEscape } from "../utils/utils.js";
-import { handleMouseDown } from "../utils/utils.js";
-import { handleClickOutsideImage } from "../utils/utils.js";
-import { handleClickOutsideCard } from "../utils/utils.js";
-import { closeByEscape } from "../utils/utils.js";
-const prevdewModal = document.querySelector("#image-modal");
+// import { closeModal } from "../utils/utils.js";
+// import { handleEscape } from "../utils/utils.js";
+// import { handleMouseDown } from "../utils/utils.js";
+// import { handleClickOutsideImage } from "../utils/utils.js";
+// import { handleClickOutsideCard } from "../utils/utils.js";
+// import { closeByEscape } from "../utils/utils.js";
+const previewModal = document.querySelector("#image-modal");
 const previewModalImage = previewModal.querySelector(".modal__image");
+console.log(previewModalImage);
 const previewModalTitle = previewModal.querySelector(".modal__image_title");
+console.log(previewModalTitle);
 
 export default class Card {
   constructor({ name, link }, cardSelector) {
