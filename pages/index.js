@@ -68,17 +68,17 @@ function fillProfileForm() {
   descriptionInput.value = profileDescription.textContent;
 }
 
-function openEditProfileModal() {
-  openModal(editProfileModal);
-}
+// function openEditProfileModal() {
+//   openModal(editProfileModal);
+// }
 
-// Event Listeners
-addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
-addCardModalButton.addEventListener("click", () => openModal(addCardModal));
-editProfileButton.addEventListener("click", () => {
-  fillProfileForm(editProfileModal);
-  openEditProfileModal();
-});
+// // Event Listeners
+// addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+// addCardModalButton.addEventListener("click", () => openModal(addCardModal));
+// editProfileButton.addEventListener("click", () => {
+//   fillProfileForm(editProfileModal);
+//   openEditProfileModal();
+// });
 
 //   _____                     __     __    _ _     _       _   _
 //  |  ___|__  _ __ _ __ ___   \ \   / /_ _| (_) __| | __ _| |_(_) ___  _ __
