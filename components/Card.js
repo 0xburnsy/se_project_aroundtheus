@@ -7,9 +7,7 @@ import { openModal } from "../utils/utils.js";
 // import { closeByEscape } from "../utils/utils.js";
 const previewModal = document.querySelector("#image-modal");
 const previewModalImage = previewModal.querySelector(".modal__image");
-console.log(previewModalImage);
 const previewModalTitle = previewModal.querySelector(".modal__image_title");
-console.log(previewModalTitle);
 
 export default class Card {
   constructor({ name, link }, cardSelector) {
@@ -49,7 +47,7 @@ export default class Card {
     this._cardElement = null;
   }
 
-  _handleImagePreview(previewModal, previewModalImage, previewModalTitle) {
+  _handleImagePreview() {
     previewModalImage.src = this._link;
     previewModalImage.alt = this._link;
     previewModalTitle.textContent = this._name;
