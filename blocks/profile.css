@@ -97,6 +97,10 @@
     margin: 0;
   }
 
+  .profile__card-add-button {
+    margin-left: 0;
+  }
+
   .profile__image {
     margin: 0;
   }
@@ -133,7 +137,7 @@
   }
 
   .profile__card-add-button {
-    margin: auto;
+    margin-left: auto;
   }
 }
 
