@@ -50,16 +50,19 @@ class FormValidator {
   }
 
   _toggleButtonState() {
-    const inputElements = Array.from(
-      this._form.querySelectorAll(this._inputSelector)
-    );
-    const submitButton = this._form.querySelector(this._submitButtonSelector);
-
-    if (this._hasInvalidInput(inputElements)) {
-      return this._disableButton(submitButton);
+    if (this._hasInvalidInput(this._inputElements)) {
+      return this._disableButton(this._submitButton);
     }
 
-    this._enableButton(submitButton);
+    this._enableButton(this._submitButton);
+  }
+
+  resetValidation() {
+    this._toggleButtonState();
+
+    this._inputElements.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
   }
 
   _setEventListeners() {

@@ -111,6 +111,8 @@ const formElement = document.querySelector(".modal__form");
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
+addFormValidator.resetValidation();
+
 //    ____              _
 //   / ___|__ _ _ __ __| |_
 //  | |   / _` | '__/ _` (_)
