@@ -97,21 +97,31 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormElement = document.querySelector("#edit-profile-form");
-const addFormElement = document.querySelector("#new-place-form");
+const editFormElement = document.forms["edit-profile-form"];
+const addFormElement = document.forms["new-place-form"];
 
-const editFormValidator = new FormValidator(
-  validationSettings,
-  editFormElement
-);
-const addFormValidator = new FormValidator(validationSettings, addFormElement);
+const formValidators = {};
 
-const formElement = document.querySelector(".modal__form");
+// enable validation
+const enableValidation = (validationSettings) => {
+  const formList = Array.from(
+    document.querySelectorAll(validationSettings.formSelector)
+  );
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(validationSettings, formElement);
+    // here you get the name of the form
+    const formName = formElement.getAttribute("name");
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+    // here you store a validator by the `name` of the form
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
 
-addFormValidator.resetValidation();
+enableValidation(validationSettings);
+
+formValidators["edit-profile-form"].resetValidation();
+formValidators["new-place-form"].resetValidation();
 
 //    ____              _
 //   / ___|__ _ _ __ __| |_
