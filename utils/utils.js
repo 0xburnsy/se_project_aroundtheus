@@ -20,17 +20,6 @@ export function closeByEscape(evt) {
   }
 }
 
-export function handleEscape(e, modal) {
-  if (e.key === "Escape") {
-    closeModal(modal);
-  }
-}
-
-export function handleMouseDown(e, modal) {
-  handleClickOutsideCard(e, modal);
-  console.log("clicked");
-}
-
 // handleClickOutsideProfile();
 // export function handleClickOutsideProfile(modal) {
 //   editProfileModal.addEventListener("mousedown", (e) => {
@@ -42,32 +31,3 @@ export function handleMouseDown(e, modal) {
 //     }
 //   });
 // }
-
-handleClickOutsideCard();
-export function handleClickOutsideCard(modal) {
-  addCardModal.addEventListener("mousedown", (e) => {
-    if (
-      e.target.classList.contains("modal") ||
-      e.target.classList.contains("modal__close")
-    ) {
-      closeModal(addCardModal);
-    }
-  });
-}
-
-handleClickOutsideImage();
-export function handleClickOutsideImage(modal) {
-  imageProfileModal.addEventListener("mousedown", (e) => {
-    console.log(e.target);
-    if (
-      e.target.classList.contains("modal") ||
-      e.target.classList.contains("modal__close")
-    ) {
-      closeModal(imageProfileModal);
-    }
-  });
-}
-
-function openEditProfileModal() {
-  openModal(editProfileModal);
-}

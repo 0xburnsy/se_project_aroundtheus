@@ -221,3 +221,21 @@ function handleClickOutsideCard(modal) {
     }
   });
 }
+
+handleClickOutsideImage();
+export function handleClickOutsideImage(modal) {
+  imageProfileModal.addEventListener("mousedown", (e) => {
+    console.log(e.target);
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("modal__close")
+    ) {
+      closeModal(imageProfileModal);
+    }
+  });
+}
+
+export function handleMouseDown(e, modal) {
+  handleClickOutsideCard(e, modal);
+  console.log("clicked");
+}
