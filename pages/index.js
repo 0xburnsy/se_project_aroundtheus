@@ -120,9 +120,6 @@ const enableValidation = (validationSettings) => {
 
 enableValidation(validationSettings);
 
-formValidators["edit-profile-form"].resetValidation();
-formValidators["new-place-form"].resetValidation();
-
 //    ____              _
 //   / ___|__ _ _ __ __| |_
 //  | |   / _` | '__/ _` (_)
@@ -191,11 +188,10 @@ function handleAddCardFormSubmit(event) {
 
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const addCardSubmitButton = document.getElementById("addCardSaveButton");
-
   renderCard({ name, link });
   closeModal(addCardModal);
   addCardFormElement.reset();
+  formValidators["new-place-form"].resetValidation();
 }
 
 handleClickOutsideProfile();
