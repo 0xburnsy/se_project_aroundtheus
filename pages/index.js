@@ -97,19 +97,28 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const editFormElement = document.querySelector("#edit-profile-form");
-const addFormElement = document.querySelector("#new-place-form");
+const editFormElement = document.forms["edit-profile-form"];
+const addFormElement = document.forms["new-place-form"];
 
-const editFormValidator = new FormValidator(
-  validationSettings,
-  editFormElement
-);
-const addFormValidator = new FormValidator(validationSettings, addFormElement);
+const formValidators = {};
 
-const formElement = document.querySelector(".modal__form");
+// enable validation
+const enableValidation = (validationSettings) => {
+  const formList = Array.from(
+    document.querySelectorAll(validationSettings.formSelector)
+  );
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(validationSettings, formElement);
+    // here you get the name of the form
+    const formName = formElement.getAttribute("name");
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+    // here you store a validator by the `name` of the form
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(validationSettings);
 
 //    ____              _
 //   / ___|__ _ _ __ __| |_
@@ -179,11 +188,10 @@ function handleAddCardFormSubmit(event) {
 
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  const addCardSubmitButton = document.getElementById("addCardSaveButton");
-
   renderCard({ name, link });
   closeModal(addCardModal);
   addCardFormElement.reset();
+  formValidators["new-place-form"].resetValidation();
 }
 
 handleClickOutsideProfile();
@@ -208,4 +216,22 @@ function handleClickOutsideCard(modal) {
       closeModal(addCardModal);
     }
   });
+}
+
+handleClickOutsideImage();
+export function handleClickOutsideImage(modal) {
+  imageProfileModal.addEventListener("mousedown", (e) => {
+    console.log(e.target);
+    if (
+      e.target.classList.contains("modal") ||
+      e.target.classList.contains("modal__close")
+    ) {
+      closeModal(imageProfileModal);
+    }
+  });
+}
+
+export function handleMouseDown(e, modal) {
+  handleClickOutsideCard(e, modal);
+  console.log("clicked");
 }
