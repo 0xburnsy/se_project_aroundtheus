@@ -2,6 +2,7 @@ import FormValidator from "../components/FormValidator";
 import Card from "../components/Card.js";
 import { openModal } from "../utils/utils.js";
 import { closeModal } from "../utils/utils.js";
+import "./index.css";
 
 const titleElement = document.querySelector(".profile__title");
 const descriptionElement = document.querySelector(".profile__description");
