@@ -3,6 +3,7 @@ import Card from "../components/Card.js";
 import { openModal } from "../utils/utils.js";
 import { closeModal } from "../utils/utils.js";
 import "./index.css";
+import { Popup } from "../components/popup.js";
 
 const titleElement = document.querySelector(".profile__title");
 const descriptionElement = document.querySelector(".profile__description");
