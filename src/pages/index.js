@@ -1,4 +1,5 @@
-import FormValidator from "../components/FormValidator";
+import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 import Card from "../components/Card.js";
 import { openModal } from "../utils/utils.js";
 import { closeModal } from "../utils/utils.js";
@@ -62,11 +63,6 @@ const addCardFormElement = addCardModal.querySelector(".modal__form");
 const cardTitleInput = addCardFormElement.querySelector(".modal__input-title");
 const cardUrlInput = addCardFormElement.querySelector(".modal__input-link");
 
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardsList.prepend(cardElement);
-}
-
 function fillProfileForm() {
   titleInput.value = profileTitle.textContent;
   descriptionInput.value = profileDescription.textContent;
@@ -122,12 +118,13 @@ const enableValidation = (validationSettings) => {
 
 enableValidation(validationSettings);
 
-//    ____              _
-//   / ___|__ _ _ __ __| |_
-//  | |   / _` | '__/ _` (_)
-//  | |__| (_| | | | (_| |_
-//   \____\__,_|_|  \__,_( )
-//                       |/
+//     __   ____  ____   ___             _____   ___     __ ______  ____  ___   ____
+//    /  ] /    T|    \ |   \           / ___/  /  _]   /  ]      Tl    j/   \ |    \
+//   /  / Y  o  ||  D  )|    \         (   \_  /  [_   /  /|      | |  TY     Y|  _  Y
+//  /  /  |     ||    / |  D  Y         \__  TY    _] /  / l_j  l_j |  ||  O  ||  |  |
+// /   \_ |  _  ||    \ |     |         /  \ ||   [_ /   \_  |  |   |  ||     ||  |  |
+// \     ||  |  ||  .  Y|     |         \    ||     T\     | |  |   j  ll     !|  |  |
+//  \____jl__j__jl__j\_jl_____j          \___jl_____j \____j l__j  |____j\___/ l__j__j
 
 const initialCards = [
   {
@@ -163,21 +160,49 @@ const cardData = {
 
 const cardSelector = "#card-template";
 
-function getCardElement(data) {
-  const card = new Card(data, "#card-template");
-  const cardElement = card.getView();
-  return cardElement;
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const card = createCard(cardData);
+      section.addItem(card);
+    },
+  },
+  cardsList
+);
+section.renderItems();
+
+function createCard(cardData) {
+  const card = new Card(cardData, cardSelector, handleCardClick);
+  return card.getView();
 }
 
-function renderInitialCards(initialCards) {
-  initialCards.forEach((cardData) => {
-    const cardElement = getCardElement(cardData);
-    cardsList.appendChild(cardElement);
-  });
+function handleCardClick(cardData) {
+  previewImagePopup.open(cardData);
 }
 
-// Call the renderInitialCards function to populate the initial cards on page load
-renderInitialCards(initialCards);
+//FUNCTIONS & EVENT HANDLERS----------------------------------------------
+// function handleProfileEditClick() {
+//   const info = userInfo.getUserInfo();
+//   profileTitleInput.value = info.userName;
+//   profileDescriptionInput.value = info.userTitle;
+//   profileEditPopup.open();
+// }
+
+// function handleEditProfileSubmit(inputValues) {
+//   userInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
+//   profileEditPopup.close();
+// }
+
+// function handleAddCardSubmit(inputValues) {
+//   const newCardData = {
+//     name: addCardTitleInput.value,
+//     link: addCardImageLinkInput.value,
+//   };
+//   const newCard = createCard(newCardData);
+//   section.addItem(newCard);
+//   addCardPopup.close();
+// }
 
 //   _   _                 _ _
 //  | | | | __ _ _ __   __| | | ___ _ __ ___ _
@@ -190,7 +215,6 @@ function handleAddCardFormSubmit(event) {
 
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
-  renderCard({ name, link });
   closeModal(addCardModal);
   addCardFormElement.reset();
   formValidators["new-place-form"].resetValidation();
