@@ -1,21 +1,40 @@
-// import { Popup } from "./popup";
+import { Popup } from "./Popup.js";
 
-// export default class PopupWithForm extends Popup {
-//   constructor(popupSelector, handleFormSubmit) {
-//     super({ popupSelector });
-//     this._popupFrom = this._popupElement.querySelector(".modal__form");
-//     this._handleFormSubmit = handleFormSubmit;
-//   }
+class PopupWithForm extends Popup {
+  constructor(popupSelector, callback) {
+    super(popupSelector);
+    this._callback = callback;
+    this._form = this._popupElement.querySelectorAll(".modal__form");
+    this._handleFormSubmit = handleFormSubmit;
+  }
+  popupElement;
 
-//   close() {
-//     this._popupForm.reset();
-//     super.close();
-//   }
-// }
+  _getInputValues() {
+    let values = {};
+    this._inputs.forEach((input) => {
+      values[input.name] = input.value;
+    });
+    return values;
+  }
 
-// // index.js
+  setEventListeners() {
+    super.setEventListeners();
+    this._form.addEventListener("submit", this._submitHandler);
+  }
 
-// const newCardPopup = new PopupWithForm("#card-template", () => {});
-// newCardPopup.open();
+  _submitHandler = (e) => {
+    e.preventDefault();
+    this._callback(this._getInputValues());
+    this.close();
+  };
 
-// newCardPopup.close();
+  close() {
+    super.close();
+    this._form.reset();
+  }
+}
+
+const popup = new PopupWithForm(".popup", (data) => console.log(data));
+popup.open();
+
+popup.close();

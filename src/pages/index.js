@@ -73,3 +73,11 @@ function handleCardClick(cardData) {
 
 const previewImagePopup = new popupWithImage("#image-modal");
 previewImagePopup.setEventListeners();
+
+// const profileEditPopup = new PopupWithForm(
+//   "#profile-edit-modal",
+//   handleEditProfileSubmit
+// );
+// const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
+
+// profileEditPopup.setEventListeners();
