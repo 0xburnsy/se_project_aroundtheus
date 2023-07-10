@@ -16,8 +16,3 @@ export default class UserInfo {
     document.querySelector(this.jobSelector).textContent = user.job;
   }
 }
-
-const userInfo = new UserInfo({
-  nameSelector: "#name",
-  jobSelector: "#job",
-});

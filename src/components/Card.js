@@ -35,7 +35,6 @@ export default class Card {
   }
 
   _handleLikeIcon() {
-    console.log("Like button clicked!");
     this._cardLikeButton.classList.toggle("card__like-button_active");
   }
 

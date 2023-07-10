@@ -72,6 +72,12 @@ function handleCardClick(cardData) {
   previewImagePopup.open(cardData);
 }
 
+// User Info
+const userInfo = new UserInfo({
+  userNameSelector: ".profile__title",
+  userTitleSelector: ".profile__description",
+});
+
 // PopupWithImage
 const previewImagePopup = new popupWithImage("#image-modal");
 previewImagePopup.setEventListeners();
