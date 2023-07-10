@@ -75,39 +75,25 @@ function handleCardClick(cardData) {
 const previewImagePopup = new popupWithImage("#image-modal");
 previewImagePopup.setEventListeners();
 
-// PopupWithForm
-const profileEditPopup = new PopupWithForm(
-  "#edit-profile-modal"
-  // handleEditProfileSubmit
-);
-// const addCardPopup = new PopupWithForm(
-//   "#new-place-form"
-//   // handleAddCardSubmit
-// );
+// PopupwithFrom
 
-//PROFILE EDIT MODAL-------------------------------------------------
+// Edit Profile Modal
 const profileEditButton = document.querySelector(".profile__edit-button");
-// const addCardButton = document.querySelector(".profile__card-add-button");
-
-// EventListeners
+const profileEditPopup = new PopupWithForm("#edit-profile-modal");
 profileEditPopup.setEventListeners();
-// addCardPopup.setEventListeners();
-previewImagePopup.setEventListeners();
-
 profileEditButton.addEventListener("click", () => {
   handleProfileEditClick();
 });
 
 function handleProfileEditClick() {
-  console.log("clicked");
   profileEditPopup.open();
 }
 
-// addCardButton.addEventListener("click", () => {
-//   handleAddCardClick();
-// });
-
-// function handleAddCardClick() {
-//   console.log("clicked");
-//   addCardPopup.open();
-// }
+// Add Card Modal
+const addCardButton = document.querySelector(".profile__card-add-button");
+const addCardPopup = new PopupWithForm("#new-place-form");
+addCardPopup.setEventListeners();
+addCardButton.addEventListener("click", () => {
+  console.log("clicked");
+  addCardPopup.open();
+});
