@@ -75,28 +75,39 @@ function handleCardClick(cardData) {
 const previewImagePopup = new popupWithImage("#image-modal");
 previewImagePopup.setEventListeners();
 
+// PopupWithForm
 const profileEditPopup = new PopupWithForm(
-  "#edit-profile-modal",
-  handleEditProfileSubmit
+  "#edit-profile-modal"
+  // handleEditProfileSubmit
 );
-const addCardPopup = new PopupWithForm("#new-place-form", handleAddCardSubmit);
+// const addCardPopup = new PopupWithForm(
+//   "#new-place-form"
+//   // handleAddCardSubmit
+// );
 
+//PROFILE EDIT MODAL-------------------------------------------------
+const profileEditButton = document.querySelector(".profile__edit-button");
+// const addCardButton = document.querySelector(".profile__card-add-button");
+
+// EventListeners
 profileEditPopup.setEventListeners();
-addCardPopup.setEventListeners();
+// addCardPopup.setEventListeners();
 previewImagePopup.setEventListeners();
-
-function handleProfileEditClick() {
-  const info = userInfo.getUserInfo();
-  profileTitleInput.value = info.userName;
-  profileDescriptionInput.value = info.userTitle;
-  profileEditPopup.open();
-}
 
 profileEditButton.addEventListener("click", () => {
   handleProfileEditClick();
 });
 
-// function handleEditProfileSubmit(inputValues) {
-//   userInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
-//   profileEditPopup.close();
+function handleProfileEditClick() {
+  console.log("clicked");
+  profileEditPopup.open();
+}
+
+// addCardButton.addEventListener("click", () => {
+//   handleAddCardClick();
+// });
+
+// function handleAddCardClick() {
+//   console.log("clicked");
+//   addCardPopup.open();
 // }
