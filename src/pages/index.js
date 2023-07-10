@@ -71,13 +71,32 @@ function handleCardClick(cardData) {
   previewImagePopup.open(cardData);
 }
 
+// PopupWithImage
 const previewImagePopup = new popupWithImage("#image-modal");
 previewImagePopup.setEventListeners();
 
-// const profileEditPopup = new PopupWithForm(
-//   "#profile-edit-modal",
-//   handleEditProfileSubmit
-// );
-// const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
+const profileEditPopup = new PopupWithForm(
+  "#edit-profile-modal",
+  handleEditProfileSubmit
+);
+const addCardPopup = new PopupWithForm("#new-place-form", handleAddCardSubmit);
 
-// profileEditPopup.setEventListeners();
+profileEditPopup.setEventListeners();
+addCardPopup.setEventListeners();
+previewImagePopup.setEventListeners();
+
+function handleProfileEditClick() {
+  const info = userInfo.getUserInfo();
+  profileTitleInput.value = info.userName;
+  profileDescriptionInput.value = info.userTitle;
+  profileEditPopup.open();
+}
+
+profileEditButton.addEventListener("click", () => {
+  handleProfileEditClick();
+});
+
+// function handleEditProfileSubmit(inputValues) {
+//   userInfo.setUserInfo(profileTitleInput.value, profileDescriptionInput.value);
+//   profileEditPopup.close();
+// }
