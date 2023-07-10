@@ -1,8 +1,9 @@
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import Card from "../components/Card.js";
-import PopupWithForm from "../components/PopupWithForm.js";
 import popupWithImage from "../components/popupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
 import "./index.css";
 
 // Get the cards list element
@@ -79,7 +80,12 @@ previewImagePopup.setEventListeners();
 
 // Edit Profile Modal
 const profileEditButton = document.querySelector(".profile__edit-button");
-const profileEditPopup = new PopupWithForm("#edit-profile-modal");
+const profileEditPopup = new PopupWithForm(
+  "#edit-profile-modal",
+  handleEditProfileSubmit
+);
+const profileTitleField = document.querySelector(".profile__title");
+const profileDescriptionField = document.querySelector(".profile__description");
 profileEditPopup.setEventListeners();
 profileEditButton.addEventListener("click", () => {
   handleProfileEditClick();
@@ -89,11 +95,27 @@ function handleProfileEditClick() {
   profileEditPopup.open();
 }
 
+function handleEditProfileSubmit(inputValues) {
+  userInfo.setUserInfo(profileTitleField.value, profileDescriptionField.value);
+  profileEditPopup.close();
+}
+
 // Add Card Modal
 const addCardButton = document.querySelector(".profile__card-add-button");
-const addCardPopup = new PopupWithForm("#new-place-form");
+const addCardTitleField = document.querySelector(".modal__input-title");
+const addCardImageLinkField = document.querySelector(".modal__input-link");
+const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
 addCardPopup.setEventListeners();
 addCardButton.addEventListener("click", () => {
-  console.log("clicked");
   addCardPopup.open();
 });
+
+function handleAddCardSubmit(inputValues) {
+  const newCardData = {
+    name: addCardTitleField.value,
+    link: addCardImageLinkField.value,
+  };
+  const newCard = createCard(newCardData);
+  section.addItem(newCard);
+  addCardPopup.close();
+}
