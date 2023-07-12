@@ -72,17 +72,37 @@ function handleCardClick(cardData) {
   previewImagePopup.open(cardData);
 }
 
-// User Info
+//  __ __  _____   ___  ____       ____  ____   _____   ___
+// |  T  T/ ___/  /  _]|    \     l    j|    \ |     | /   \
+// |  |  (   \_  /  [_ |  D  )     |  T |  _  Y|   __jY     Y
+// |  |  |\__  TY    _]|    /      |  | |  |  ||  l_  |  O  |
+// |  :  |/  \ ||   [_ |    \      |  | |  |  ||   _] |     |
+// l     |\    ||     T|  .  Y     j  l |  |  ||  T   l     !
+//  \__,_j \___jl_____jl__j\_j    |____jl__j__jl__j    \___/
+
 const userInfo = new UserInfo({
   userNameSelector: ".profile__title",
   userTitleSelector: ".profile__description",
 });
 
-// PopupWithImage
+//  ____    ___   ____  __ __  ____  __    __  ____  ______  __ __  ____  ___ ___   ____   ____    ___
+// |    \  /   \ |    \|  T  T|    \|  T__T  Tl    j|      T|  T  Tl    j|   T   T /    T /    T  /  _]
+// |  o  )Y     Y|  o  )  |  ||  o  )  |  |  | |  T |      ||  l  | |  T | _   _ |Y  o  |Y   __j /  [_
+// |   _/ |  O  ||   _/|  |  ||   _/|  |  |  | |  | l_j  l_j|  _  | |  | |  \_/  ||     ||  T  |Y    _]
+// |  |   |     ||  |  |  :  ||  |  l  `  '  ! |  |   |  |  |  |  | |  | |   |   ||  _  ||  l_ ||   [_
+// |  |   l     !|  |  l     ||  |   \      /  j  l   |  |  |  |  | j  l |   |   ||  |  ||     ||     T
+// l__j    \___/ l__j   \__,_jl__j    \_/\_/  |____j  l__j  l__j__j|____jl___j___jl__j__jl___,_jl_____j
+
 const previewImagePopup = new popupWithImage("#image-modal");
 previewImagePopup.setEventListeners();
 
-// PopupwithFrom
+//  ____    ___   ____  __ __  ____  __    __  ____  ______  __ __  _____  ____    ___   ___ ___
+// |    \  /   \ |    \|  T  T|    \|  T__T  Tl    j|      T|  T  T|     ||    \  /   \ |   T   T
+// |  o  )Y     Y|  o  )  |  ||  o  )  |  |  | |  T |      ||  l  ||   __j|  D  )Y     Y| _   _ |
+// |   _/ |  O  ||   _/|  |  ||   _/|  |  |  | |  | l_j  l_j|  _  ||  l_  |    / |  O  ||  \_/  |
+// |  |   |     ||  |  |  :  ||  |  l  `  '  ! |  |   |  |  |  |  ||   _] |    \ |     ||   |   |
+// |  |   l     !|  |  l     ||  |   \      /  j  l   |  |  |  |  ||  T   |  .  Yl     !|   |   |
+// l__j    \___/ l__j   \__,_jl__j    \_/\_/  |____j  l__j  l__j__jl__j   l__j\_j \___/ l___j___j
 
 // Edit Profile Modal
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -90,8 +110,6 @@ const profileEditPopup = new PopupWithForm(
   "#edit-profile-modal",
   handleEditProfileSubmit
 );
-const profileTitleField = document.querySelector(".profile__title");
-const profileDescriptionField = document.querySelector(".profile__description");
 profileEditPopup.setEventListeners();
 profileEditButton.addEventListener("click", () => {
   handleProfileEditClick();
@@ -102,7 +120,8 @@ function handleProfileEditClick() {
 }
 
 function handleEditProfileSubmit(inputValues) {
-  userInfo.setUserInfo(profileTitleField.value, profileDescriptionField.value);
+  console.log(inputValues);
+  userInfo.setUserInfo(inputValues);
   profileEditPopup.close();
 }
 
