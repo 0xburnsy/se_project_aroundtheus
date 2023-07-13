@@ -1,9 +1,9 @@
-import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import Card from "../components/Card.js";
 import popupWithImage from "../components/popupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import FormValidator from "../components/FormValidator.js";
 import "./index.css";
 
 // Get the cards list element
@@ -144,3 +144,32 @@ function handleAddCardSubmit(inputValues) {
   section.addItem(newCard);
   addCardPopup.close();
 }
+
+//   _____                     __     __    _ _     _       _   _
+//  |  ___|__  _ __ _ __ ___   \ \   / /_ _| (_) __| | __ _| |_(_) ___  _ __
+//  | |_ / _ \| '__| '_ ` _ \   \ \ / / _` | | |/ _` |/ _` | __| |/ _ \| '_ \
+//  |  _| (_) | |  | | | | | |   \ V / (_| | | | (_| | (_| | |_| | (_) | | | |
+//  |_|  \___/|_|  |_| |_| |_|    \_/ \__,_|_|_|\__,_|\__,_|\__|_|\___/|_| |_|
+
+const validationSettings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input-type-error",
+  errorClass: "modal__error_visible",
+};
+
+const addCardModal = document.querySelector("#new-place-form");
+const profileEditModal = document.querySelector("#edit-profile-form");
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const addCardForm = addCardModal.querySelector(".modal__form");
+
+const editProfileFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
+editProfileFormValidator.enableValidation();
+
+const addCardFormValidator = new FormValidator(validationSettings, addCardForm);
+addCardFormValidator.enableValidation();
