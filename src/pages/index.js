@@ -160,8 +160,8 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-const addCardModal = document.querySelector("#new-place-form");
-const profileEditModal = document.querySelector("#edit-profile-form");
+const addCardModal = document.querySelector("#add-card-modal");
+const profileEditModal = document.querySelector("#edit-profile-modal");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const addCardForm = addCardModal.querySelector(".modal__form");
 
