@@ -135,22 +135,19 @@ const addCardButton = document.querySelector(".profile__card-add-button");
 const addCardTitleField = document.querySelector(".modal__input-title");
 const addCardImageLinkField = document.querySelector(".modal__input-link");
 const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
-const form = document.querySelector(".modal__form");
-const validator = new FormValidator(form);
 addCardPopup.setEventListeners();
 addCardButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
 function handleAddCardSubmit(inputValues) {
-  validator.resetValidation();
-
   const newCardData = {
     name: addCardTitleField.value,
     link: addCardImageLinkField.value,
   };
   const newCard = createCard(newCardData);
   section.addItem(newCard);
+  addCardFormValidator.resetValidation();
   addCardPopup.close();
 }
 
