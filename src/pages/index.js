@@ -6,6 +6,9 @@ import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
 import "./index.css";
 
+const userNameInput = document.querySelector("#owner-name");
+const userDescriptionInput = document.querySelector("#owner-description");
+
 // Get the cards list element
 const cardsList = document.querySelector(".cards__list");
 
@@ -116,11 +119,14 @@ profileEditButton.addEventListener("click", () => {
 });
 
 function handleProfileEditClick() {
+  const user = userInfo.getUserInfo();
+  // Reference input variables (nameinput.value = user.name; )
+  userNameInput.value = user.name;
+  userDescriptionInput.value = user.job;
   profileEditPopup.open();
 }
 
 function handleEditProfileSubmit(inputValues) {
-  console.log(inputValues);
   userInfo.setUserInfo(inputValues);
   profileEditPopup.close();
 }
