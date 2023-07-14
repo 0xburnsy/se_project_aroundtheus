@@ -142,6 +142,7 @@ addCardButton.addEventListener("click", () => {
 });
 
 function handleAddCardSubmit(inputValues) {
+  const submitButton = document.querySelector("#addCardSaveButton");
   const newCardData = {
     name: addCardTitleField.value,
     link: addCardImageLinkField.value,
@@ -149,6 +150,8 @@ function handleAddCardSubmit(inputValues) {
   const newCard = createCard(newCardData);
   section.addItem(newCard);
   addCardPopup.close();
+
+  submitButton.disabled = true;
 }
 
 //   _____                     __     __    _ _     _       _   _
