@@ -147,8 +147,8 @@ function handleAddCardSubmit(inputValues) {
   };
   const newCard = createCard(newCardData);
   section.addItem(newCard);
-  addCardFormValidator.resetValidation();
   addCardPopup.close();
+  addCardFormValidator.resetValidation();
 }
 
 //   _____                     __     __    _ _     _       _   _
