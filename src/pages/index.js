@@ -120,7 +120,6 @@ profileEditButton.addEventListener("click", () => {
 
 function handleProfileEditClick() {
   const user = userInfo.getUserInfo();
-  // Reference input variables (nameinput.value = user.name; )
   userNameInput.value = user.name;
   userDescriptionInput.value = user.job;
   profileEditPopup.open();
@@ -136,13 +135,16 @@ const addCardButton = document.querySelector(".profile__card-add-button");
 const addCardTitleField = document.querySelector(".modal__input-title");
 const addCardImageLinkField = document.querySelector(".modal__input-link");
 const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
+const form = document.querySelector(".modal__form");
+const validator = new FormValidator(form);
 addCardPopup.setEventListeners();
 addCardButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
 function handleAddCardSubmit(inputValues) {
-  const submitButton = document.querySelector("#addCardSaveButton");
+  validator.resetValidation();
+
   const newCardData = {
     name: addCardTitleField.value,
     link: addCardImageLinkField.value,
@@ -150,8 +152,6 @@ function handleAddCardSubmit(inputValues) {
   const newCard = createCard(newCardData);
   section.addItem(newCard);
   addCardPopup.close();
-
-  submitButton.disabled = true;
 }
 
 //   _____                     __     __    _ _     _       _   _
