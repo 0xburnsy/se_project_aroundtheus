@@ -96,8 +96,13 @@ const userInfo = new UserInfo({
 // |  |   l     !|  |  l     ||  |   \      /  j  l   |  |  |  |  | j  l |   |   ||  |  ||     ||     T
 // l__j    \___/ l__j   \__,_jl__j    \_/\_/  |____j  l__j  l__j__j|____jl___j___jl__j__jl___,_jl_____j
 
-const previewImagePopup = new popupWithImage("#image-modal");
+const previewImagePopup = new popupWithImage("#image-modal", handleImageClick);
+
+function handleImageClick({ name, link }) {
+  imagePreviewModal.open({ name, link });
+}
 previewImagePopup.setEventListeners();
+previewImagePopup.open();
 
 //  ____    ___   ____  __ __  ____  __    __  ____  ______  __ __  _____  ____    ___   ___ ___
 // |    \  /   \ |    \|  T  T|    \|  T__T  Tl    j|      T|  T  T|     ||    \  /   \ |   T   T

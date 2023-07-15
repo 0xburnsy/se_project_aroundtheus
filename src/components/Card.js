@@ -1,12 +1,9 @@
-import { openModal } from "../utils/utils.js";
-import { closeModal } from "../utils/utils.js";
-import { closeByEscape } from "../utils/utils.js";
 const previewModal = document.querySelector("#image-modal");
 const previewModalImage = previewModal.querySelector(".modal__image");
 const previewModalTitle = previewModal.querySelector(".modal__image_title");
 
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
@@ -17,6 +14,7 @@ export default class Card {
       ".card__delete-button"
     );
     this._cardImage = this._cardElement.querySelector(".card__image");
+    this._handleImageClick = handleImageClick;
     this._setEventListeners();
   }
 
@@ -30,7 +28,7 @@ export default class Card {
     });
 
     this._cardImage.addEventListener("click", () => {
-      this._handleImagePreview();
+      this._handleImageClick({ name: this._name, link: this._link });
     });
   }
 
@@ -40,13 +38,6 @@ export default class Card {
 
   _handleDeleteCard() {
     this._cardElement.remove();
-  }
-
-  _handleImagePreview() {
-    previewModalImage.src = this._link;
-    previewModalImage.alt = this._name;
-    previewModalTitle.textContent = this._name;
-    openModal(previewModal);
   }
 
   _getTemplate() {
