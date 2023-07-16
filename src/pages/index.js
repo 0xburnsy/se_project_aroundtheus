@@ -1,6 +1,6 @@
 import Section from "../components/Section.js";
 import Card from "../components/Card.js";
-import popupWithImage from "../components/popupWithImage.js";
+import popupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
