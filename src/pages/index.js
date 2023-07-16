@@ -5,6 +5,9 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
 import {
+  userNameInput,
+  userDescriptionInput,
+  cardsList,
   initialCards,
   cardData,
   cardSelector,
@@ -17,12 +20,6 @@ import {
   addCardForm,
 } from "../utils/Constants.js";
 import "./index.css";
-
-const userNameInput = document.querySelector("#owner-name");
-const userDescriptionInput = document.querySelector("#owner-description");
-
-// Get the cards list element
-const cardsList = document.querySelector(".cards__list");
 
 //     __   ____  ____   ___             _____   ___     __ ______  ____  ___   ____
 //    /  ] /    T|    \ |   \           / ___/  /  _]   /  ]      Tl    j/   \ |    \

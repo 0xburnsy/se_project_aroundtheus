@@ -1,3 +1,9 @@
+export const userNameInput = document.querySelector("#owner-name");
+export const userDescriptionInput =
+  document.querySelector("#owner-description");
+
+const cardsList = document.querySelector(".cards__list");
+
 export const initialCards = [
   {
     name: "Yosemite Valley",
