@@ -100,9 +100,9 @@ const previewImagePopup = new popupWithImage("#image-modal", handleImageClick);
 
 function handleImageClick(cardData) {
   imagePreviewModal.open(cardData);
+  previewImagePopup.setEventListeners();
+  previewImagePopup.open(cardData);
 }
-previewImagePopup.setEventListeners();
-previewImagePopup.open(cardData);
 
 //  ____    ___   ____  __ __  ____  __    __  ____  ______  __ __  _____  ____    ___   ___ ___
 // |    \  /   \ |    \|  T  T|    \|  T__T  Tl    j|      T|  T  T|     ||    \  /   \ |   T   T
