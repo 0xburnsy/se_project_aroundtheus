@@ -4,6 +4,18 @@ import popupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
+import {
+  initialCards,
+  cardData,
+  cardSelector,
+  profileEditButton,
+  addCardButton,
+  addCardTitleField,
+  addCardImageLinkField,
+  validationSettings,
+  profileEditForm,
+  addCardForm,
+} from "../utils/Constants.js";
 import "./index.css";
 
 const userNameInput = document.querySelector("#owner-name");
@@ -19,40 +31,6 @@ const cardsList = document.querySelector(".cards__list");
 // /   \_ |  _  ||    \ |     |         /  \ ||   [_ /   \_  |  |   |  ||     ||  |  |
 // \     ||  |  ||  .  Y|     |         \    ||     T\     | |  |   j  ll     !|  |  |
 //  \____jl__j__jl__j\_jl_____j          \___jl_____j \____j l__j  |____j\___/ l__j__j
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-const cardSelector = "#card-template";
 
 const section = new Section(
   {
@@ -113,7 +91,6 @@ function handleImageClick(cardData) {
 // l__j    \___/ l__j   \__,_jl__j    \_/\_/  |____j  l__j  l__j__jl__j   l__j\_j \___/ l___j___j
 
 // Edit Profile Modal
-const profileEditButton = document.querySelector(".profile__edit-button");
 const profileEditPopup = new PopupWithForm(
   "#edit-profile-modal",
   handleEditProfileSubmit
@@ -136,9 +113,6 @@ function handleEditProfileSubmit(inputValues) {
 }
 
 // Add Card Modal
-const addCardButton = document.querySelector(".profile__card-add-button");
-const addCardTitleField = document.querySelector(".modal__input-title");
-const addCardImageLinkField = document.querySelector(".modal__input-link");
 const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
 addCardPopup.setEventListeners();
 addCardButton.addEventListener("click", () => {
@@ -161,20 +135,6 @@ function handleAddCardSubmit(inputValues) {
 //  | |_ / _ \| '__| '_ ` _ \   \ \ / / _` | | |/ _` |/ _` | __| |/ _ \| '_ \
 //  |  _| (_) | |  | | | | | |   \ V / (_| | | | (_| | (_| | |_| | (_) | | | |
 //  |_|  \___/|_|  |_| |_| |_|    \_/ \__,_|_|_|\__,_|\__,_|\__|_|\___/|_| |_|
-
-const validationSettings = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input-type-error",
-  errorClass: "modal__error_visible",
-};
-
-const addCardModal = document.querySelector("#add-card-modal");
-const profileEditModal = document.querySelector("#edit-profile-modal");
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const addCardForm = addCardModal.querySelector(".modal__form");
 
 const editProfileFormValidator = new FormValidator(
   validationSettings,
