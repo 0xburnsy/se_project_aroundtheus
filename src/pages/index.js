@@ -77,7 +77,6 @@ const userInfo = new UserInfo({
 const previewImagePopup = new popupWithImage("#image-modal", handleImageClick);
 
 function handleImageClick(cardData) {
-  imagePreviewModal.open(cardData);
   previewImagePopup.setEventListeners();
   previewImagePopup.open(cardData);
 }
@@ -116,10 +115,12 @@ function handleEditProfileSubmit(inputValues) {
 const addCardPopup = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
 addCardPopup.setEventListeners();
 addCardButton.addEventListener("click", () => {
+  addCardFormValidator.resetValidation();
   addCardPopup.open();
 });
 
 function handleAddCardSubmit(inputValues) {
+  const { name, link } = inputValues;
   const newCardData = {
     name: addCardTitleField.value,
     link: addCardImageLinkField.value,
@@ -127,7 +128,6 @@ function handleAddCardSubmit(inputValues) {
   const newCard = createCard(newCardData);
   section.addItem(newCard);
   addCardPopup.close();
-  addCardFormValidator.resetValidation();
 }
 
 //   _____                     __     __    _ _     _       _   _
