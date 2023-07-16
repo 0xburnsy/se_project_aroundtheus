@@ -1,6 +1,4 @@
 const previewModal = document.querySelector("#image-modal");
-const previewModalImage = previewModal.querySelector(".modal__image");
-const previewModalTitle = previewModal.querySelector(".modal__image_title");
 
 export default class Card {
   constructor({ name, link }, cardSelector, handleImageClick) {
@@ -50,7 +48,6 @@ export default class Card {
   getView() {
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
-    this._cardImage.classList.add("card__image");
     this._cardElement.querySelector(".card__title").textContent = this._name;
 
     return this._cardElement;
