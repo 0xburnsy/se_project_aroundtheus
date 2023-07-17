@@ -72,9 +72,9 @@ const userInfo = new UserInfo({
 // l__j    \___/ l__j   \__,_jl__j    \_/\_/  |____j  l__j  l__j__j|____jl___j___jl__j__jl___,_jl_____j
 
 const previewImagePopup = new popupWithImage("#image-modal", handleImageClick);
+previewImagePopup.setEventListeners();
 
 function handleImageClick(cardData) {
-  previewImagePopup.setEventListeners();
   previewImagePopup.open(cardData);
 }
 
