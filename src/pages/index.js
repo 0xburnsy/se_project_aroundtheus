@@ -119,8 +119,8 @@ addCardButton.addEventListener("click", () => {
 function handleAddCardSubmit(inputValues) {
   const { name, link } = inputValues;
   const newCardData = {
-    name: addCardTitleField.value,
-    link: addCardImageLinkField.value,
+    name,
+    link,
   };
   const newCard = createCard(newCardData);
   section.addItem(newCard);
