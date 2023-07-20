@@ -26,8 +26,6 @@ const api = new Api({
   authToken: "cbf26a1e-6a5f-40f2-a6e1-9e5a1e743a75",
 });
 
-api.getCardList().then((res) => console.log(res));
-
 //     __   ____  ____   ___             _____   ___     __ ______  ____  ___   ____
 //    /  ] /    T|    \ |   \           / ___/  /  _]   /  ]      Tl    j/   \ |    \
 //   /  / Y  o  ||  D  )|    \         (   \_  /  [_   /  /|      | |  TY     Y|  _  Y
