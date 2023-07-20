@@ -4,11 +4,11 @@ import popupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import FormValidator from "../components/FormValidator.js";
+import Api from "../components/Api.js";
 import {
   userNameInput,
   userDescriptionInput,
   cardsList,
-  initialCards,
   cardData,
   cardSelector,
   profileEditButton,
@@ -21,6 +21,13 @@ import {
 } from "../utils/Constants.js";
 import "./index.css";
 
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/cohort-3-en",
+  authToken: "cbf26a1e-6a5f-40f2-a6e1-9e5a1e743a75",
+});
+
+api.getCardList().then((res) => console.log(res));
+
 //     __   ____  ____   ___             _____   ___     __ ______  ____  ___   ____
 //    /  ] /    T|    \ |   \           / ___/  /  _]   /  ]      Tl    j/   \ |    \
 //   /  / Y  o  ||  D  )|    \         (   \_  /  [_   /  /|      | |  TY     Y|  _  Y
@@ -29,17 +36,19 @@ import "./index.css";
 // \     ||  |  ||  .  Y|     |         \    ||     T\     | |  |   j  ll     !|  |  |
 //  \____jl__j__jl__j\_jl_____j          \___jl_____j \____j l__j  |____j\___/ l__j__j
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const card = createCard(cardData);
-      section.addItem(card);
+api.getCardList().then((cardData) => {
+  const section = new Section(
+    {
+      items: cardData,
+      renderer: (cardData) => {
+        const card = createCard(cardData);
+        section.addItem(card);
+      },
     },
-  },
-  cardsList
-);
-section.renderItems();
+    cardsList
+  );
+  section.renderItems();
+});
 
 function createCard(cardData) {
   const card = new Card(cardData, cardSelector, handleCardClick);
