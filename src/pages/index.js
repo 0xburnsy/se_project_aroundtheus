@@ -70,6 +70,13 @@ const userInfo = new UserInfo({
   userTitleSelector: ".profile__description",
 });
 
+api.getUserInfo().then((user) => {
+  userInfo.setUserInfo({
+    title: user.name,
+    description: user.about,
+  });
+});
+
 //  ____    ___   ____  __ __  ____  __    __  ____  ______  __ __  ____  ___ ___   ____   ____    ___
 // |    \  /   \ |    \|  T  T|    \|  T__T  Tl    j|      T|  T  Tl    j|   T   T /    T /    T  /  _]
 // |  o  )Y     Y|  o  )  |  ||  o  )  |  |  | |  T |      ||  l  | |  T | _   _ |Y  o  |Y   __j /  [_
@@ -103,6 +110,7 @@ profileEditButton.addEventListener("click", () => {
   handleProfileEditClick();
 });
 
+// Place your Api call in here when setting the data
 function handleProfileEditClick() {
   const user = userInfo.getUserInfo();
   userNameInput.value = user.name;
@@ -123,14 +131,12 @@ addCardButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
+// Attempting to add card with API
 function handleAddCardSubmit(inputValues) {
   const { title, description } = inputValues;
-  const newCardData = {
-    name: title,
-    link: description,
-  };
-  const newCard = createCard(newCardData);
-  section.addItem(newCard);
+  api.addCard({ title, description }).then((res) => {
+    console.log(res);
+  });
   addCardPopup.close();
 }
 
