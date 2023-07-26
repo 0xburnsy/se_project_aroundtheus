@@ -131,13 +131,15 @@ addCardButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
-// Attempting to add card with API
+// Attempting to add card with API (36:06)
 function handleAddCardSubmit(inputValues) {
-  const { title, description } = inputValues;
-  api.addCard({ title, description }).then((res) => {
+  const { name, link } = inputValues;
+  api.addCard({ name, link }).then((res) => {
     console.log(res);
   });
-  addCardPopup.close();
+  // const newCard = createCard(newCardData);
+  // section.addItem(newCard);
+  // addCardPopup.close();
 }
 
 //   _____                     __     __    _ _     _       _   _
