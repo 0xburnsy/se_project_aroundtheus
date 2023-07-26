@@ -135,11 +135,10 @@ addCardButton.addEventListener("click", () => {
 function handleAddCardSubmit(inputValues) {
   const { name, link } = inputValues;
   api.addCard({ name, link }).then((res) => {
-    console.log(res);
+    const newCard = createCard(newCardData);
+    section.addItem(newCard);
+    addCardPopup.close();
   });
-  // const newCard = createCard(newCardData);
-  // section.addItem(newCard);
-  // addCardPopup.close();
 }
 
 //   _____                     __     __    _ _     _       _   _
