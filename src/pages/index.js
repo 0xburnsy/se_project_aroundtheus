@@ -34,8 +34,10 @@ const api = new Api({
 // \     ||  |  ||  .  Y|     |         \    ||     T\     | |  |   j  ll     !|  |  |
 //  \____jl__j__jl__j\_jl_____j          \___jl_____j \____j l__j  |____j\___/ l__j__j
 
+let section;
+
 api.getCardList().then((cardData) => {
-  const section = new Section(
+  section = new Section(
     {
       items: cardData,
       renderer: (cardData) => {
