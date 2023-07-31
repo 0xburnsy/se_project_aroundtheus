@@ -134,8 +134,7 @@ addCardButton.addEventListener("click", () => {
 });
 
 function handleAddCardSubmit(inputValues) {
-  const { name, link } = inputValues;
-  api.addCard({ name, link }).then((res) => {
+  api.addCard(inputValues).then((res) => {
     const newCard = createCard(res);
     section.addItem(newCard);
     addCardPopup.close();

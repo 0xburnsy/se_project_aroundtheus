@@ -47,6 +47,12 @@ export default class Api {
         name,
         link,
       }),
-    });
+    })
+      .then((res) =>
+        res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+      )
+      .catch((err) => {
+        console.error(err); // log the error to the console
+      });
   }
 }
