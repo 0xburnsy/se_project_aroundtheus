@@ -15,7 +15,7 @@ export default class Api {
         res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
       )
       .catch((err) => {
-        console.error(err); // log the error to the console
+        console.error(err);
       });
   }
 
@@ -30,7 +30,7 @@ export default class Api {
         res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
       )
       .catch((err) => {
-        console.error(err); // log the error to the console
+        console.error(err);
       });
   }
 
@@ -52,7 +52,23 @@ export default class Api {
         res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
       )
       .catch((err) => {
-        console.error(err); // log the error to the console
+        console.error(err);
+      });
+  }
+
+  removeCard(cardID) {
+    return fetch(`${this._baseUrl}/cards/${cardID}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this._authToken,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) =>
+        res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
+      )
+      .catch((err) => {
+        console.error(err);
       });
   }
 }

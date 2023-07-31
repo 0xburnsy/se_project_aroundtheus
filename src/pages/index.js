@@ -26,6 +26,8 @@ const api = new Api({
   authToken: "cbf26a1e-6a5f-40f2-a6e1-9e5a1e743a75",
 });
 
+// api.removeCard("64c7e757de5eab1bc680725c").then((res) => console.log(res));
+
 //     __   ____  ____   ___             _____   ___     __ ______  ____  ___   ____
 //    /  ] /    T|    \ |   \           / ___/  /  _]   /  ]      Tl    j/   \ |    \
 //   /  / Y  o  ||  D  )|    \         (   \_  /  [_   /  /|      | |  TY     Y|  _  Y
@@ -51,12 +53,24 @@ api.getCardList().then((cardData) => {
 });
 
 function createCard(cardData) {
-  const card = new Card(cardData, cardSelector, handleCardClick);
+  const card = new Card(
+    cardData,
+    cardSelector,
+    handleCardClick,
+    handleDeleteCardClick
+  );
   return card.getView();
 }
 
 function handleCardClick(cardData) {
   previewImagePopup.open(cardData);
+}
+
+function handleDeleteCardClick(cardData) {
+  const id = card.getID();
+  api.removeCard(id).then((res) => {
+    card.handleDeleteCard();
+  });
 }
 
 //  __ __  _____   ___  ____       ____  ____   _____   ___

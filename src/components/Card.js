@@ -1,9 +1,15 @@
 const previewModal = document.querySelector("#image-modal");
 
 export default class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
+  constructor(
+    { name, link, id },
+    cardSelector,
+    handleImageClick,
+    handleDeleteCardClick
+  ) {
     this._name = name;
     this._link = link;
+    this._id = id;
     this._cardSelector = cardSelector;
     this._cardElement = this._getTemplate();
     this._cardLikeButton =
@@ -11,9 +17,14 @@ export default class Card {
     this._cardDeleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
+    this._handleDeleteCardClick = handleDeleteCardClick;
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._handleImageClick = handleImageClick;
     this._setEventListeners();
+  }
+
+  getId() {
+    return this._id;
   }
 
   _setEventListeners() {
@@ -22,7 +33,7 @@ export default class Card {
     });
 
     this._cardDeleteButton.addEventListener("click", () => {
-      this._handleDeleteCard();
+      this._handleDeleteCardClick();
     });
 
     this._cardImage.addEventListener("click", () => {
