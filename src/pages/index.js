@@ -66,10 +66,9 @@ function handleCardClick(cardData) {
   previewImagePopup.open(cardData);
 }
 
-function handleDeleteCardClick(cardData) {
-  const id = card.getID();
-  api.removeCard(id).then((res) => {
-    card.handleDeleteCard();
+function handleDeleteCardClick(cardId) {
+  api.removeCard(cardId).then((res) => {
+    card._handleDeleteCard();
   });
 }
 
